@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import {
   Users,
@@ -14,7 +15,9 @@ import {
   BarChart3,
   ArrowRight,
   Plus,
-  Edit
+  Edit,
+  UserCheck,
+  Clock
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 
@@ -35,37 +38,38 @@ const pieData = [
 ];
 
 export const AdminDashboard = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
 
   const stats = [
     {
-      title: 'Total Utilisateurs',
+      title: t('admin.dashboard.totalUsers'),
       value: '1,248',
       change: '+12%',
       icon: <Users className="h-8 w-8 text-blue-600" />,
       color: 'blue'
     },
     {
-      title: 'Total Documents',
+      title: t('admin.dashboard.pendingRequests'),
+      value: '23',
+      change: '+3',
+      icon: <Clock className="h-8 w-8 text-orange-600" />,
+      color: 'orange'
+    },
+    {
+      title: t('admin.dashboard.totalDocuments'),
       value: '456',
       change: '+8%',
       icon: <FileText className="h-8 w-8 text-green-600" />,
       color: 'green'
     },
     {
-      title: 'Total Actualités',
+      title: t('admin.dashboard.totalNews'),
       value: '89',
       change: '+15%',
       icon: <Newspaper className="h-8 w-8 text-purple-600" />,
       color: 'purple'
-    },
-    {
-      title: 'Sessions Actives',
-      value: '234',
-      change: '+5%',
-      icon: <Activity className="h-8 w-8 text-orange-600" />,
-      color: 'orange'
     }
   ];
 
@@ -131,8 +135,8 @@ export const AdminDashboard = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Accès Refusé</h1>
-          <p className="text-gray-600">Vous n'avez pas la permission d'accéder à cette page.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('admin.registrationApproval.accessDenied')}</h1>
+          <p className="text-gray-600">{t('admin.registrationApproval.noPermission')}</p>
         </div>
       </div>
     );
@@ -148,8 +152,8 @@ export const AdminDashboard = () => {
           className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8"
         >
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Tableau de Bord Administrateur</h1>
-            <p className="text-gray-600 mt-1">Bon retour, {user.firstName} !</p>
+            <h1 className="text-3xl font-bold text-gray-900">{t('admin.dashboard.title')}</h1>
+            <p className="text-gray-600 mt-1">{t('admin.dashboard.welcome')}, {user.firstName} !</p>
           </div>
           <div className="flex items-center gap-4 mt-4 sm:mt-0">
             <button className="relative p-2 text-gray-400 hover:text-gray-600 bg-white rounded-lg shadow-sm border border-gray-200">
@@ -203,8 +207,28 @@ export const AdminDashboard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
         >
+          <Link
+            to="/admin/registration-approval"
+            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group border-l-4 border-orange-500"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t('admin.dashboard.approvals')}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {t('admin.dashboard.manageRegistrations')}
+                </p>
+                <div className="mt-2 bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-medium">
+                  23 {t('admin.dashboard.pendingCount')}
+                </div>
+              </div>
+              <UserCheck className="h-5 w-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
+            </div>
+          </Link>
+
           <Link
             to="/admin/users"
             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group"
@@ -212,10 +236,10 @@ export const AdminDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Gestion Utilisateurs
+                  {t('admin.dashboard.userManagement')}
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Gérer les membres et les rôles
+                  {t('admin.dashboard.manageMembers')}
                 </p>
               </div>
               <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
@@ -229,10 +253,10 @@ export const AdminDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Gestion Documents
+                  {t('admin.dashboard.documentManagement')}
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Télécharger et organiser les documents
+                  {t('admin.dashboard.uploadOrganize')}
                 </p>
               </div>
               <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
@@ -246,10 +270,10 @@ export const AdminDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Gestion Actualités
+                  {t('admin.dashboard.newsManagement')}
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Créer et publier des articles
+                  {t('admin.dashboard.createPublish')}
                 </p>
               </div>
               <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
@@ -268,13 +292,13 @@ export const AdminDashboard = () => {
               className="bg-white rounded-xl shadow-lg p-6"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">Aperçu de l'Activité</h3>
+                <h3 className="text-xl font-bold text-gray-900">{t('admin.dashboard.activityOverview')}</h3>
                 <div className="flex items-center gap-2">
                   <BarChart3 className="h-5 w-5 text-gray-400" />
                   <select className="text-sm border border-gray-300 rounded px-2 py-1">
-                    <option>6 derniers mois</option>
-                    <option>3 derniers mois</option>
-                    <option>Mois dernier</option>
+                    <option>{t('admin.dashboard.lastMonths')}</option>
+                    <option>{t('admin.dashboard.last3Months')}</option>
+                    <option>{t('admin.dashboard.lastMonth')}</option>
                   </select>
                 </div>
               </div>
@@ -324,7 +348,7 @@ export const AdminDashboard = () => {
               transition={{ delay: 0.5 }}
               className="bg-white rounded-xl shadow-lg p-6"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Rôles des Utilisateurs</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{t('admin.dashboard.userRoles')}</h3>
               <div className="h-48">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -364,7 +388,7 @@ export const AdminDashboard = () => {
               transition={{ delay: 0.6 }}
               className="bg-white rounded-xl shadow-lg p-6"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Activité Récente</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{t('admin.dashboard.recentActivity')}</h3>
               <div className="space-y-4">
                 {recentActivities.map((activity) => (
                   <div key={activity.id} className="flex items-start gap-3">

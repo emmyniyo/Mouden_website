@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { GraduationCap, Menu, X, User, Settings, LogOut } from 'lucide-react';
+import { LanguageSelector } from '../LanguageSelector';
 
 export const Header = () => {
+  const { t } = useTranslation();
   const { user, logout } = useAuth();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '/about' },
-    { name: 'Actualités', href: '/news' },
-    { name: 'Documents', href: '/documents' },
-    ...(user ? [{ name: 'Annuaire', href: '/members' }] : []),
-    { name: 'Contact', href: '/contact' },
+    { name: t('navigation.home'), href: '/' },
+    { name: t('navigation.about'), href: '/about' },
+    { name: t('navigation.news'), href: '/news' },
+    { name: t('navigation.documents'), href: '/documents' },
+    ...(user ? [{ name: t('navigation.members'), href: '/members' }] : []),
+    { name: t('navigation.contact'), href: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -30,7 +33,7 @@ export const Header = () => {
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
             <span className="font-bold text-xl text-gray-900">
-              Syndicat des Professeurs Universitaires
+              {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat des Professeurs Universitaires'}
             </span>
           </Link>
 
@@ -53,6 +56,8 @@ export const Header = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
+            {/* Language Selector */}
+            <LanguageSelector />
             {user ? (
               <div className="relative">
                 <button
@@ -76,10 +81,7 @@ export const Header = () => {
                         user.role === 'member' ? 'bg-green-100 text-green-800' :
                         'bg-gray-100 text-gray-800'
                       }`}>
-                        {user.role === 'admin' ? 'Administrateur' :
-                         user.role === 'editor' ? 'Éditeur' :
-                         user.role === 'member' ? 'Membre' :
-                         'Visiteur'}
+                        {t(`roles.${user.role}`)}
                       </span>
                     </div>
                     
@@ -90,7 +92,7 @@ export const Header = () => {
                         onClick={() => setIsUserMenuOpen(false)}
                       >
                         <Settings size={16} />
-                        Tableau de bord
+                        {t('admin.dashboard.title')}
                       </Link>
                     )}
                     
@@ -100,7 +102,7 @@ export const Header = () => {
                       onClick={() => setIsUserMenuOpen(false)}
                     >
                       <User size={16} />
-                      Profil
+                      {t('navigation.profile')}
                     </Link>
                     
                     <button
@@ -111,7 +113,7 @@ export const Header = () => {
                       className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                     >
                       <LogOut size={16} />
-                      Déconnexion
+                      {t('navigation.logout')}
                     </button>
                   </div>
                 )}
@@ -121,7 +123,7 @@ export const Header = () => {
                 to="/login"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Connexion
+                {t('navigation.login')}
               </Link>
             )}
 

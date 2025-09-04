@@ -17,6 +17,7 @@ import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { UserManagement } from './pages/admin/UserManagement';
 import { DocumentManagement } from './pages/admin/DocumentManagement';
 import { NewsManagement } from './pages/admin/NewsManagement';
+import { RegistrationApproval } from './pages/admin/RegistrationApproval';
 
 // Main application component with routing and authentication context
 
@@ -53,6 +54,14 @@ function App() {
               element={
                 <ProtectedRoute requiredRoles={['admin', 'editor']}>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="admin/registration-approval"
+              element={
+                <ProtectedRoute requiredRoles={['admin']}>
+                  <RegistrationApproval />
                 </ProtectedRoute>
               }
             />
