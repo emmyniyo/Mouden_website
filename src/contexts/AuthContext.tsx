@@ -15,8 +15,8 @@ export interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => Promise<boolean>;
-  register: (userData: RegisterData) => Promise<boolean>;
+  login: (email: string, password: string) => Promise<{success: boolean, user: User | null}>;
+  register: (userData: RegisterData) => Promise<{success: boolean, user: User | null}>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(false);
   }, []);
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = async (email: string, password: string): Promise<{success: boolean, user: User | null}> => {
     setIsLoading(true);
     
     // Simulate API call
@@ -84,14 +84,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(foundUser);
       localStorage.setItem('user', JSON.stringify(foundUser));
       setIsLoading(false);
-      return true;
+      return { success: true, user: foundUser };
     }
     
     setIsLoading(false);
-    return false;
+    return { success: false, user: null };
   };
 
-  const register = async (userData: RegisterData): Promise<boolean> => {
+  const register = async (userData: RegisterData): Promise<{success: boolean, user: User | null}> => {
     setIsLoading(true);
     
     // Simulate API call
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     mockUsers.push(newUser);
     // Don't set user as logged in - they need approval first
     setIsLoading(false);
-    return true;
+    return { success: true, user: newUser };
   };
 
   const logout = () => {

@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import {
   Search,
@@ -96,6 +97,7 @@ const mockDocuments: Document[] = [
 ];
 
 export const Documents = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -103,7 +105,15 @@ export const Documents = () => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [showPublicOnly, setShowPublicOnly] = useState(false);
 
-  const categories = ['all', 'Accords', 'Avantages', 'Normes', 'Salaires', 'Gouvernance', 'Formulaires'];
+  const categories = [
+    { value: 'all', label: t('documents.filters.all') },
+    { value: 'Accords', label: t('documents.filters.agreements') },
+    { value: 'Avantages', label: 'Avantages' },
+    { value: 'Normes', label: t('documents.filters.policies') },
+    { value: 'Salaires', label: 'Salaires' },
+    { value: 'Gouvernance', label: 'Gouvernance' },
+    { value: 'Formulaires', label: t('documents.filters.forms') }
+  ];
 
   const filteredAndSortedDocuments = useMemo(() => {
     let filtered = mockDocuments.filter(doc => {
@@ -143,7 +153,7 @@ export const Documents = () => {
     return filtered;
   }, [searchTerm, selectedCategory, sortBy, sortOrder, showPublicOnly, user]);
 
-  const getFileIcon = (type: string) => {
+  const getFileIcon = () => {
     return <FileText className="h-8 w-8 text-red-600" />;
   };
 
@@ -164,9 +174,9 @@ export const Documents = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Centre de Documents</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('documents.title')}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Accédez aux documents importants du syndicat, aux accords et aux ressources
+            {t('documents.subtitle')}
           </p>
         </motion.div>
 
@@ -183,7 +193,7 @@ export const Documents = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder="Rechercher des documents..."
+                placeholder={t('documents.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -199,8 +209,8 @@ export const Documents = () => {
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
               >
                 {categories.map(category => (
-                  <option key={category} value={category}>
-                    {category === 'all' ? 'Toutes les Catégories' : category}
+                  <option key={category.value} value={category.value}>
+                    {category.label}
                   </option>
                 ))}
               </select>
@@ -218,11 +228,11 @@ export const Documents = () => {
                 }}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
               >
-                <option value="date-desc">Plus Récent</option>
-                <option value="date-asc">Plus Ancien</option>
-                <option value="title-asc">A à Z</option>
+                <option value="date-desc">{t('documents.sort.newest')}</option>
+                <option value="date-asc">{t('documents.sort.oldest')}</option>
+                <option value="title-asc">{t('documents.sort.name')}</option>
                 <option value="title-desc">Z à A</option>
-                <option value="downloads-desc">Plus Téléchargé</option>
+                <option value="downloads-desc">{t('documents.sort.downloads')}</option>
               </select>
             </div>
 
@@ -230,7 +240,7 @@ export const Documents = () => {
             {user && (user.role === 'admin' || user.role === 'editor') && (
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
                 <Upload className="h-5 w-5" />
-                Télécharger Document
+                {t('documents.upload.title')}
               </button>
             )}
           </div>
@@ -245,7 +255,7 @@ export const Documents = () => {
                   onChange={(e) => setShowPublicOnly(e.target.checked)}
                   className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                 />
-                <span className="text-sm text-gray-600">Afficher uniquement les documents publics</span>
+                <span className="text-sm text-gray-600">{t('documents.filters.public')}</span>
               </label>
             </div>
           )}
@@ -263,15 +273,15 @@ export const Documents = () => {
             >
               <div className="flex items-start gap-4">
                 <div className="bg-gray-50 p-3 rounded-lg">
-                  {getFileIcon(doc.type)}
+                  {getFileIcon()}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="font-semibold text-gray-900 truncate">{doc.title}</h3>
                     {doc.isPublic ? (
-                      <Globe className="h-4 w-4 text-green-600" title="Document public" />
+                      <Globe className="h-4 w-4 text-green-600" />
                     ) : (
-                      <Lock className="h-4 w-4 text-yellow-600" title="Membres uniquement" />
+                      <Lock className="h-4 w-4 text-yellow-600" />
                     )}
                   </div>
                   <p className="text-sm text-gray-600 mb-3 line-clamp-2">{doc.description}</p>
@@ -307,7 +317,7 @@ export const Documents = () => {
                       <button
                         onClick={() => handleDownload(doc)}
                         className="p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-                        title="Télécharger"
+                        title={t('documents.document.download')}
                       >
                         <Download className="h-4 w-4" />
                       </button>
@@ -326,7 +336,7 @@ export const Documents = () => {
             className="text-center py-12"
           >
             <FileText className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Aucun document trouvé</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">{t('documents.search.noResults')}</h3>
             <p className="text-gray-600">Essayez d'ajuster vos critères de recherche ou filtres.</p>
           </motion.div>
         )}

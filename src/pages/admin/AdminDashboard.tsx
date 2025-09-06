@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
+import { AdminSidebar } from '../../components/Admin/AdminSidebar';
 import {
   Users,
   FileText,
@@ -13,11 +13,8 @@ import {
   Settings,
   Bell,
   BarChart3,
-  ArrowRight,
-  Plus,
-  Edit,
-  UserCheck,
-  Clock
+  Clock,
+  Menu
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 
@@ -40,7 +37,8 @@ const pieData = [
 export const AdminDashboard = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState('overview');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stats = [
     {
@@ -143,8 +141,46 @@ export const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <div className="hidden lg:block">
+        <AdminSidebar 
+          isCollapsed={sidebarCollapsed} 
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
+        />
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative flex h-full">
+            <AdminSidebar 
+              isCollapsed={false} 
+              onToggle={() => setMobileMenuOpen(false)} 
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Mobile Header */}
+        <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-lg hover:bg-gray-100"
+          >
+            <Menu className="h-6 w-6 text-gray-600" />
+          </button>
+          <h1 className="text-lg font-semibold text-gray-900">
+            {t('admin.sidebar.title')}
+          </h1>
+          <div className="w-10" /> {/* Spacer */}
+        </div>
+
+        {/* Dashboard Content */}
+        <div className="flex-1 p-4 sm:p-6 lg:p-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -200,85 +236,6 @@ export const AdminDashboard = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Quick Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
-        >
-          <Link
-            to="/admin/registration-approval"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group border-l-4 border-orange-500"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {t('admin.dashboard.approvals')}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {t('admin.dashboard.manageRegistrations')}
-                </p>
-                <div className="mt-2 bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-medium">
-                  23 {t('admin.dashboard.pendingCount')}
-                </div>
-              </div>
-              <UserCheck className="h-5 w-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
-            </div>
-          </Link>
-
-          <Link
-            to="/admin/users"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {t('admin.dashboard.userManagement')}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {t('admin.dashboard.manageMembers')}
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-            </div>
-          </Link>
-
-          <Link
-            to="/admin/documents"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {t('admin.dashboard.documentManagement')}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {t('admin.dashboard.uploadOrganize')}
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-            </div>
-          </Link>
-
-          <Link
-            to="/admin/news"
-            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all group"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {t('admin.dashboard.newsManagement')}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {t('admin.dashboard.createPublish')}
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-            </div>
-          </Link>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -405,6 +362,7 @@ export const AdminDashboard = () => {
               </div>
             </motion.div>
           </div>
+        </div>
         </div>
       </div>
     </div>

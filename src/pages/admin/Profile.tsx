@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { motion } from 'framer-motion';
-import { useAuth } from '../contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../contexts/AuthContext';
+import { AdminSidebar } from '../../components/Admin/AdminSidebar';
 import {
   User,
   Mail,
@@ -16,9 +18,9 @@ import {
   Camera,
   Shield,
   Award,
-  Clock,
   Download,
-  Eye
+  Eye,
+  Menu
 } from 'lucide-react';
 
 interface ProfileForm {
@@ -31,9 +33,9 @@ interface ProfileForm {
   specialization: string;
 }
 
-const schema = yup.object({
-  firstName: yup.string().required('Le prénom est requis'),
-  lastName: yup.string().required('Le nom de famille est requis'),
+const createSchema = (t: any) => yup.object({
+  firstName: yup.string().required(t('profile.personalInfo.validation.firstNameRequired')),
+  lastName: yup.string().required(t('profile.personalInfo.validation.lastNameRequired')),
   phone: yup.string(),
   university: yup.string(),
   department: yup.string(),
@@ -42,12 +44,15 @@ const schema = yup.object({
 });
 
 export const Profile = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ProfileForm>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(createSchema(t)) as any,
     defaultValues: {
       firstName: user?.firstName || '',
       lastName: user?.lastName || '',
@@ -71,19 +76,19 @@ export const Profile = () => {
   const recentActivity = [
     {
       id: 1,
-      action: "Téléchargé: Guide des Avantages 2025",
+      action: `${t('profile.activity.actions.downloaded')} ${t('profile.activity.items.benefitsGuide')}`,
       date: "2025-01-15",
       type: "download"
     },
     {
       id: 2,
-      action: "Consulté: Nouvelles du Syndicat",
+      action: `${t('profile.activity.actions.viewed')} ${t('profile.activity.items.unionNews')}`,
       date: "2025-01-14",
       type: "view"
     },
     {
       id: 3,
-      action: "Inscrit à: Atelier de Développement Professionnel",
+      action: `${t('profile.activity.actions.registered')} ${t('profile.activity.items.workshop')}`,
       date: "2025-01-12",
       type: "registration"
     }
@@ -91,8 +96,8 @@ export const Profile = () => {
 
   const membershipInfo = {
     memberSince: "2020-09-15",
-    membershipType: "Adhésion Complète",
-    status: "Actif",
+    membershipType: t('profile.membership.types.full'),
+    status: t('profile.membership.statuses.active'),
     renewalDate: "2025-09-15"
   };
 
@@ -100,16 +105,55 @@ export const Profile = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Accès Refusé</h1>
-          <p className="text-gray-600">Veuillez vous connecter pour voir votre profil.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('profile.accessDenied.title')}</h1>
+          <p className="text-gray-600">{t('profile.accessDenied.message')}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <div className="hidden lg:block">
+        <AdminSidebar 
+          isCollapsed={sidebarCollapsed} 
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
+        />
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative flex h-full">
+            <AdminSidebar 
+              isCollapsed={false} 
+              onToggle={() => setMobileMenuOpen(false)} 
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Mobile Header */}
+        <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-lg hover:bg-gray-100"
+          >
+            <Menu className="h-6 w-6 text-gray-600" />
+          </button>
+          <h1 className="text-lg font-semibold text-gray-900">
+            {t('admin.sidebar.profile')}
+          </h1>
+          <div className="w-10" /> {/* Spacer */}
+        </div>
+
+        {/* Page Content */}
+        <div className="flex-1 py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -139,10 +183,10 @@ export const Profile = () => {
                     user.role === 'member' ? 'bg-green-100 text-green-800' :
                     'bg-gray-100 text-gray-800'
                   }`}>
-                    {user.role === 'admin' ? 'Administrateur' :
-                     user.role === 'editor' ? 'Éditeur' :
-                     user.role === 'member' ? 'Membre' :
-                     'Visiteur'}
+                    {user.role === 'admin' ? t('profile.header.roles.admin') :
+                     user.role === 'editor' ? t('profile.header.roles.editor') :
+                     user.role === 'member' ? t('profile.header.roles.member') :
+                     t('profile.header.roles.visitor')}
                   </span>
                 </div>
               </div>
@@ -152,7 +196,7 @@ export const Profile = () => {
                   className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
                 >
                   {isEditing ? <X className="h-4 w-4" /> : <Edit className="h-4 w-4" />}
-                  {isEditing ? 'Annuler' : 'Modifier'}
+                  {isEditing ? t('profile.header.cancel') : t('profile.header.edit')}
                 </button>
               </div>
             </div>
@@ -163,7 +207,7 @@ export const Profile = () => {
             <div className="lg:col-span-2">
               <div className="bg-gray-50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Informations Personnelles
+                  {t('profile.personalInfo.title')}
                 </h2>
 
                 {isEditing ? (
@@ -171,7 +215,7 @@ export const Profile = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Prénom
+                          {t('profile.personalInfo.fields.firstName')}
                         </label>
                         <input
                           {...register('firstName')}
@@ -185,7 +229,7 @@ export const Profile = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Nom de famille
+                          {t('profile.personalInfo.fields.lastName')}
                         </label>
                         <input
                           {...register('lastName')}
@@ -199,7 +243,7 @@ export const Profile = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Numéro de téléphone
+                          {t('profile.personalInfo.fields.phone')}
                         </label>
                         <input
                           {...register('phone')}
@@ -210,7 +254,7 @@ export const Profile = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Université
+                          {t('profile.personalInfo.fields.university')}
                         </label>
                         <select
                           {...register('university')}
@@ -226,7 +270,7 @@ export const Profile = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Faculté/Département
+                          {t('profile.personalInfo.fields.department')}
                         </label>
                         <input
                           {...register('department')}
@@ -237,23 +281,23 @@ export const Profile = () => {
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Poste
+                          {t('profile.personalInfo.fields.position')}
                         </label>
                         <select
                           {...register('position')}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                          <option value="Professeur de l'Enseignement Supérieur">Professeur de l'Enseignement Supérieur</option>
-                          <option value="Professeur Habilité">Professeur Habilité</option>
-                          <option value="Professeur Assistant">Professeur Assistant</option>
-                          <option value="Professeur Visiteur">Professeur Visiteur</option>
+                          <option value="Professeur de l'Enseignement Supérieur">{t('profile.personalInfo.positions.professor')}</option>
+                          <option value="Professeur Habilité">{t('profile.personalInfo.positions.habilitated')}</option>
+                          <option value="Professeur Assistant">{t('profile.personalInfo.positions.assistant')}</option>
+                          <option value="Professeur Visiteur">{t('profile.personalInfo.positions.visitor')}</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Spécialisation
+                        {t('profile.personalInfo.fields.specialization')}
                       </label>
                       <input
                         {...register('specialization')}
@@ -273,7 +317,7 @@ export const Profile = () => {
                         ) : (
                           <Save className="h-4 w-4" />
                         )}
-                        Sauvegarder les Modifications
+                        {t('profile.personalInfo.actions.save')}
                       </button>
                       <button
                         type="button"
@@ -283,7 +327,7 @@ export const Profile = () => {
                         }}
                         className="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors"
                       >
-                        Annuler
+                        {t('profile.personalInfo.actions.cancel')}
                       </button>
                     </div>
                   </form>
@@ -293,7 +337,7 @@ export const Profile = () => {
                       <div className="flex items-center gap-3">
                         <User className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Nom complet</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.fullName')}</p>
                           <p className="font-medium text-gray-900">{user.firstName} {user.lastName}</p>
                         </div>
                       </div>
@@ -301,7 +345,7 @@ export const Profile = () => {
                       <div className="flex items-center gap-3">
                         <Mail className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Email</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.email')}</p>
                           <p className="font-medium text-gray-900">{user.email}</p>
                         </div>
                       </div>
@@ -309,15 +353,15 @@ export const Profile = () => {
                       <div className="flex items-center gap-3">
                         <Phone className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Téléphone</p>
-                          <p className="font-medium text-gray-900">{user.phone || 'Non spécifié'}</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.phone')}</p>
+                          <p className="font-medium text-gray-900">{user.phone || t('profile.personalInfo.placeholders.notSpecified')}</p>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-3">
                         <MapPin className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Université</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.university')}</p>
                           <p className="font-medium text-gray-900">Université Mohammed V - Rabat</p>
                         </div>
                       </div>
@@ -325,7 +369,7 @@ export const Profile = () => {
                       <div className="flex items-center gap-3">
                         <Award className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Poste</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.position')}</p>
                           <p className="font-medium text-gray-900">Professeur de l'Enseignement Supérieur</p>
                         </div>
                       </div>
@@ -333,7 +377,7 @@ export const Profile = () => {
                       <div className="flex items-center gap-3">
                         <Calendar className="h-5 w-5 text-gray-400" />
                         <div>
-                          <p className="text-sm text-gray-500">Membre depuis</p>
+                          <p className="text-sm text-gray-500">{t('profile.personalInfo.labels.memberSince')}</p>
                           <p className="font-medium text-gray-900">
                             {new Date(membershipInfo.memberSince).toLocaleDateString('fr-FR')}
                           </p>
@@ -350,21 +394,21 @@ export const Profile = () => {
               {/* Membership Status */}
               <div className="bg-gray-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Statut d'Adhésion
+                  {t('profile.membership.title')}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Type d'adhésion</span>
+                    <span className="text-gray-600">{t('profile.membership.type')}</span>
                     <span className="font-medium text-gray-900">{membershipInfo.membershipType}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Statut</span>
+                    <span className="text-gray-600">{t('profile.membership.status')}</span>
                     <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">
                       {membershipInfo.status}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Date de renouvellement</span>
+                    <span className="text-gray-600">{t('profile.membership.renewalDate')}</span>
                     <span className="font-medium text-gray-900">
                       {new Date(membershipInfo.renewalDate).toLocaleDateString('fr-FR')}
                     </span>
@@ -375,7 +419,7 @@ export const Profile = () => {
               {/* Recent Activity */}
               <div className="bg-gray-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Activité Récente
+                  {t('profile.activity.title')}
                 </h3>
                 <div className="space-y-3">
                   {recentActivity.map((activity) => (
@@ -403,23 +447,25 @@ export const Profile = () => {
               {/* Quick Actions */}
               <div className="bg-gray-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Actions Rapides
+                  {t('profile.quickActions.title')}
                 </h3>
                 <div className="space-y-3">
                   <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors text-left">
-                    Changer le mot de passe
+                    {t('profile.quickActions.changePassword')}
                   </button>
                   <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-medium transition-colors text-left">
-                    Télécharger la carte de membre
+                    {t('profile.quickActions.downloadCard')}
                   </button>
                   <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors text-left">
-                    Voir l'historique d'activité
+                    {t('profile.quickActions.viewHistory')}
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

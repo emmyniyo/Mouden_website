@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   Calendar, 
   Clock, 
@@ -137,11 +138,17 @@ const mockEvents: Event[] = [
 ];
 
 export const News = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeTab, setActiveTab] = useState<'news' | 'events'>('news');
 
-  const categories = ['all', 'news', 'announcement', 'event'];
+  const categories = [
+    { value: 'all', label: t('news.filters.all') },
+    { value: 'news', label: t('news.filters.news') },
+    { value: 'announcement', label: t('news.filters.announcements') },
+    { value: 'event', label: t('news.filters.events') }
+  ];
   const eventTypes = ['all', 'meeting', 'workshop', 'conference', 'social'];
 
   const filteredNews = mockNews.filter(article => {
@@ -173,14 +180,14 @@ export const News = () => {
 
   const getCategoryLabel = (category: string) => {
     const labels = {
-      all: 'Toutes les catégories',
-      news: 'Actualités',
-      announcement: 'Annonces',
-      event: 'Événements',
-      meeting: 'Réunions',
-      workshop: 'Ateliers',
-      conference: 'Conférences',
-      social: 'Social'
+      all: t('news.filters.all'),
+      news: t('news.filters.news'),
+      announcement: t('news.filters.announcements'),
+      event: t('news.filters.events'),
+      meeting: t('news.events.types.meeting'),
+      workshop: t('news.events.types.workshop'),
+      conference: t('news.events.types.conference'),
+      social: t('news.events.types.social')
     };
     return labels[category as keyof typeof labels] || category;
   };
@@ -194,9 +201,9 @@ export const News = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Actualités et Événements</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('news.title')}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Restez informé des dernières actualités du syndicat, des annonces et des événements à venir
+            {t('news.subtitle')}
           </p>
         </motion.div>
 
@@ -216,7 +223,7 @@ export const News = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Actualités et Annonces
+              {t('news.filters.news')} et {t('news.filters.announcements')}
             </button>
             <button
               onClick={() => setActiveTab('events')}
@@ -226,7 +233,7 @@ export const News = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Événements à Venir
+              {t('news.events.upcoming')}
             </button>
           </div>
         </motion.div>
@@ -243,7 +250,7 @@ export const News = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder={activeTab === 'news' ? 'Rechercher actualités et annonces...' : 'Rechercher événements...'}
+                placeholder={t('news.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -256,9 +263,9 @@ export const News = () => {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white min-w-[150px]"
               >
-                {(activeTab === 'news' ? categories : eventTypes).map(category => (
-                  <option key={category} value={category}>
-                    {getCategoryLabel(category)}
+                {(activeTab === 'news' ? categories : eventTypes.map(type => ({ value: type, label: getCategoryLabel(type) }))).map(category => (
+                  <option key={category.value} value={category.value}>
+                    {category.label}
                   </option>
                 ))}
               </select>
@@ -319,7 +326,7 @@ export const News = () => {
                           to={`/news/${article.id}`}
                           className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
                         >
-                          Lire la Suite
+                          {t('news.article.readMore')}
                           <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -376,7 +383,7 @@ export const News = () => {
                             to={`/news/${article.id}`}
                             className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
                           >
-                            Lire la Suite
+                            {t('news.article.readMore')}
                             <ArrowRight size={16} />
                           </Link>
                         </div>
@@ -437,7 +444,7 @@ export const News = () => {
                   
                   {event.registrationRequired && (
                     <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                      S'inscrire
+                      {t('news.events.register')}
                     </button>
                   )}
                 </motion.div>

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { AdminSidebar } from '../../components/Admin/AdminSidebar';
 import {
   Newspaper,
   Plus,
@@ -13,7 +15,8 @@ import {
   Globe,
   Star,
   BarChart3,
-  TrendingUp
+  TrendingUp,
+  Menu
 } from 'lucide-react';
 
 interface NewsArticle {
@@ -64,10 +67,13 @@ const mockNews: NewsArticle[] = [
 ];
 
 export const NewsManagement = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const categories = ['all', 'actualites-syndicales', 'annonces', 'evenements', 'developpement-professionnel', 'actualites-academiques'];
   const statuses = ['all', 'draft', 'published', 'archived'];
@@ -110,8 +116,47 @@ export const NewsManagement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <div className="hidden lg:block">
+        <AdminSidebar 
+          isCollapsed={sidebarCollapsed} 
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
+        />
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative flex h-full">
+            <AdminSidebar 
+              isCollapsed={false} 
+              onToggle={() => setMobileMenuOpen(false)} 
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Mobile Header */}
+        <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-lg hover:bg-gray-100"
+          >
+            <Menu className="h-6 w-6 text-gray-600" />
+          </button>
+          <h1 className="text-lg font-semibold text-gray-900">
+            {t('admin.sidebar.news')}
+          </h1>
+          <div className="w-10" /> {/* Spacer */}
+        </div>
+
+        {/* Page Content */}
+        <div className="flex-1 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -437,6 +482,8 @@ export const NewsManagement = () => {
             </motion.div>
           </div>
         )}
+          </div>
+        </div>
       </div>
     </div>
   );
