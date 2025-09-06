@@ -423,6 +423,11 @@
       "category": "Catégorie",
       "type": "Type"
     },
+    "loginRequired": {
+      "title": "Accéder à Plus de Documents",
+      "message": "Connectez-vous en tant que membre du syndicat pour accéder aux documents exclusifs et aux ressources.",
+      "button": "Se Connecter"
+    },
     "upload": {
       "title": "Télécharger un Document",
       "selectFile": "Sélectionner un Fichier",

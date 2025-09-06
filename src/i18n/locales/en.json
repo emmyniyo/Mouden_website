@@ -453,6 +453,11 @@
       "category": "Category",
       "type": "Type"
     },
+    "loginRequired": {
+      "title": "Access More Documents",
+      "message": "Log in as a union member to access exclusive documents and resources.",
+      "button": "Log In"
+    },
     "upload": {
       "title": "Upload Document",
       "selectFile": "Select File",

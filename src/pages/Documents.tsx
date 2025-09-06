@@ -349,12 +349,12 @@ export const Documents = () => {
           >
             <div className="text-center">
               <Lock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">Accéder à Plus de Documents</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">{t('documents.loginRequired.title')}</h3>
               <p className="text-blue-700 mb-4">
-                Connectez-vous en tant que membre du syndicat pour accéder aux documents exclusifs et aux ressources.
+                {t('documents.loginRequired.message')}
               </p>
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-                Se Connecter
+                {t('documents.loginRequired.button')}
               </button>
             </div>
           </motion.div>
