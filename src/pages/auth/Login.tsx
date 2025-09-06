@@ -41,7 +41,7 @@ export const Login = () => {
     try {
       const success = await login(data.email, data.password);
       if (success.success) {
-        const from = success.user?.role === 'member' ? location.state?.from?.pathname : '/admin';
+        const from = success.user?.role === 'member' ? '/' : '/admin';
         navigate(from, { replace: true });
       } else {
         setError(t('auth.login.invalidCredentials'));
