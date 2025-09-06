@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
+import { AdminSidebar } from '../../components/Admin/AdminSidebar';
 import { registrationService, RegistrationRequest } from '../../services/registrationService';
 import {
   Users,
@@ -18,14 +20,18 @@ import {
   Mail,
   Phone,
   Hash,
-  AlertCircle
+  AlertCircle,
+  Menu
 } from 'lucide-react';
 
 
 export const RegistrationApproval = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRole, setSelectedRole] = useState('all');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState('pending');
   const [selectedRequest, setSelectedRequest] = useState<RegistrationRequest | null>(null);
   const [showRequestModal, setShowRequestModal] = useState(false);
@@ -101,12 +107,7 @@ export const RegistrationApproval = () => {
   };
 
   const getStatusLabel = (status: string) => {
-    const labels = {
-      pending: 'En attente',
-      approved: 'Approuvé',
-      rejected: 'Rejeté'
-    };
-    return labels[status as keyof typeof labels] || status;
+    return t(`status.${status}`);
   };
 
   const handleApprove = async (requestId: string) => {
@@ -152,15 +153,54 @@ export const RegistrationApproval = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Chargement des demandes...</p>
+          <p className="text-gray-600">{t('admin.registrationApproval.loadingRequests')}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <div className="hidden lg:block">
+        <AdminSidebar 
+          isCollapsed={sidebarCollapsed} 
+          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
+        />
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setMobileMenuOpen(false)} />
+          <div className="relative flex h-full">
+            <AdminSidebar 
+              isCollapsed={false} 
+              onToggle={() => setMobileMenuOpen(false)} 
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Mobile Header */}
+        <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-lg hover:bg-gray-100"
+          >
+            <Menu className="h-6 w-6 text-gray-600" />
+          </button>
+          <h1 className="text-lg font-semibold text-gray-900">
+            {t('admin.sidebar.approvals')}
+          </h1>
+          <div className="w-10" /> {/* Spacer */}
+        </div>
+
+        {/* Page Content */}
+        <div className="flex-1 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -169,15 +209,15 @@ export const RegistrationApproval = () => {
         >
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              Gestion des Demandes d'Inscription
+              {t('admin.registrationApproval.title')}
             </h1>
             <p className="text-gray-600 mt-1">
-              Approuvez ou rejetez les demandes d'inscription des nouveaux membres
+              {t('admin.registrationApproval.subtitle')}
             </p>
           </div>
                       <div className="flex items-center gap-4 mt-4 sm:mt-0">
             <div className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
-              {stats.pending} en attente
+              {stats.pending} {t('admin.registrationApproval.pending')}
             </div>
           </div>
         </motion.div>
@@ -192,7 +232,7 @@ export const RegistrationApproval = () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">En Attente</p>
+                <p className="text-sm font-medium text-gray-600">{t('admin.registrationApproval.pending')}</p>
                 <p className="text-3xl font-bold text-orange-600">
                   {stats.pending}
                 </p>
@@ -204,7 +244,7 @@ export const RegistrationApproval = () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Approuvées</p>
+                <p className="text-sm font-medium text-gray-600">{t('admin.registrationApproval.approved')}</p>
                 <p className="text-3xl font-bold text-green-600">
                   {stats.approved}
                 </p>
@@ -216,7 +256,7 @@ export const RegistrationApproval = () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Rejetées</p>
+                <p className="text-sm font-medium text-gray-600">{t('admin.registrationApproval.rejected')}</p>
                 <p className="text-3xl font-bold text-red-600">
                   {stats.rejected}
                 </p>
@@ -228,7 +268,7 @@ export const RegistrationApproval = () => {
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Total</p>
+                <p className="text-sm font-medium text-gray-600">{t('admin.registrationApproval.total')}</p>
                 <p className="text-3xl font-bold text-blue-600">
                   {stats.total}
                 </p>
@@ -584,6 +624,8 @@ export const RegistrationApproval = () => {
             </motion.div>
           </div>
         )}
+          </div>
+        </div>
       </div>
     </div>
   );

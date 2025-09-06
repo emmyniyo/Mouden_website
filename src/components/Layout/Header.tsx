@@ -32,7 +32,7 @@ export const Header = () => {
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-lg">
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
-            <span className="font-bold text-xl text-gray-900">
+            <span className="font-bold text-lg text-gray-900">
               {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat des Professeurs Universitaires'}
             </span>
           </Link>
@@ -55,7 +55,7 @@ export const Header = () => {
           </nav>
 
           {/* Right Section */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ml-4">
             {/* Language Selector */}
             <LanguageSelector />
             {user ? (
@@ -96,14 +96,14 @@ export const Header = () => {
                       </Link>
                     )}
                     
-                    <Link
+                    {/* <Link
                       to="/profile"
                       className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
                       <User size={16} />
                       {t('navigation.profile')}
-                    </Link>
+                    </Link> */}
                     
                     <button
                       onClick={() => {

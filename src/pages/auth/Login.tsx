@@ -28,7 +28,7 @@ export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
-  const from = location.state?.from?.pathname || '/';
+  // const from = location.state?.from?.pathname || '/admin';
   const searchParams = new URLSearchParams(location.search);
   const message = searchParams.get('message');
 
@@ -40,7 +40,8 @@ export const Login = () => {
     setError('');
     try {
       const success = await login(data.email, data.password);
-      if (success) {
+      if (success.success) {
+        const from = success.user?.role === 'member' ? location.state?.from?.pathname : '/admin';
         navigate(from, { replace: true });
       } else {
         setError(t('auth.login.invalidCredentials'));
@@ -101,7 +102,7 @@ export const Login = () => {
                 </div>
               </div>
             )}
-            
+
             {error && (
               <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg">
                 {error}

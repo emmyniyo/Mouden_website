@@ -8,7 +8,7 @@ import { News } from './pages/News';
 import { Documents } from './pages/Documents';
 import { Contact } from './pages/Contact';
 import { About } from './pages/About';
-import { Profile } from './pages/Profile';
+import { Profile } from './pages/admin/Profile';
 import { MemberDirectory } from './pages/MemberDirectory';
 import { Login } from './pages/auth/Login';
 import { Register } from './pages/auth/Register';
@@ -90,7 +90,7 @@ function App() {
               }
             />
             <Route
-              path="profile"
+              path="admin/profile"
               element={
                 <ProtectedRoute>
                   <Profile />

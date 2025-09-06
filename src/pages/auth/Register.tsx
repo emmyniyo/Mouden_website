@@ -57,7 +57,7 @@ export const Register = () => {
         requestedRole: data.requestedRole,
         requestNotes: data.requestNotes
       });
-      if (success) {
+      if (success.success) {
         navigate('/login?message=registration-pending');
       } else {
         setError(t('auth.register.registrationError'));

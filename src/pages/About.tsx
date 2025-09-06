@@ -1,39 +1,37 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   Users, 
   Target, 
   Award, 
   Shield, 
   BookOpen, 
-  Heart,
-  MapPin,
-  Calendar,
-  TrendingUp,
-  CheckCircle
+  TrendingUp
 } from 'lucide-react';
 
 export const About = () => {
+  const { t } = useTranslation();
+  
   const values = [
     {
       icon: <Shield className="h-8 w-8 text-blue-600" />,
-      title: "Défense des Droits",
-      description: "Nous défendons fermement les droits des professeurs universitaires et garantissons des conditions de travail équitables"
+      title: t('about.values.rightsDefense.title'),
+      description: t('about.values.rightsDefense.description')
     },
     {
       icon: <BookOpen className="h-8 w-8 text-green-600" />,
-      title: "Développement Professionnel",
-      description: "Nous offrons des programmes de développement professionnel continu pour renforcer les capacités académiques de nos membres"
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description')
     },
     {
       icon: <Users className="h-8 w-8 text-purple-600" />,
-      title: "Solidarité Académique",
-      description: "Nous construisons des ponts de coopération et de solidarité entre les professeurs de toutes les universités marocaines"
+      title: t('about.values.solidarity.title'),
+      description: t('about.values.solidarity.description')
     },
     {
       icon: <Award className="h-8 w-8 text-orange-600" />,
-      title: "Excellence Académique",
-      description: "Nous visons à atteindre les plus hauts standards d'excellence dans l'enseignement universitaire et la recherche scientifique"
+      title: t('about.values.academicExcellence.title'),
+      description: t('about.values.academicExcellence.description')
     }
   ];
 
@@ -46,24 +44,24 @@ export const About = () => {
 
   const timeline = [
     {
-      year: "1995",
-      title: "Fondation du Syndicat",
-      description: "Fondation du Syndicat des Professeurs Universitaires Marocains pour protéger les droits des professeurs"
+      year: t('about.history.timeline.founding.year'),
+      title: t('about.history.timeline.founding.title'),
+      description: t('about.history.timeline.founding.description')
     },
     {
-      year: "2005",
-      title: "Expansion Nationale",
-      description: "Extension du syndicat pour inclure toutes les universités marocaines"
+      year: t('about.history.timeline.recognition.year'),
+      title: t('about.history.timeline.recognition.title'),
+      description: t('about.history.timeline.recognition.description')
     },
     {
-      year: "2015",
-      title: "Transformation Numérique",
-      description: "Lancement de la plateforme numérique pour mieux servir les membres"
+      year: t('about.history.timeline.expansion.year'),
+      title: t('about.history.timeline.expansion.title'),
+      description: t('about.history.timeline.expansion.description')
     },
     {
-      year: "2025",
-      title: "Nouvelle Plateforme",
-      description: "Lancement de la plateforme avancée avec des fonctionnalités modernes"
+      year: t('about.history.timeline.digital.year'),
+      title: t('about.history.timeline.digital.title'),
+      description: t('about.history.timeline.digital.description')
     }
   ];
 
@@ -110,10 +108,10 @@ export const About = () => {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              À Propos de Notre Syndicat
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Syndicat des Professeurs Universitaires Marocains - Une voix unie pour l'excellence de l'enseignement supérieur
+              {t('about.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -130,25 +128,25 @@ export const About = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Notre Mission et Vision
+                {t('about.mission.sectionTitle')}
               </h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-blue-600 mb-3 flex items-center gap-2">
                     <Target className="h-6 w-6" />
-                    Mission
+                    {t('about.mission.title')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Nous œuvrons pour défendre les droits et intérêts des professeurs universitaires au Maroc, améliorer la qualité de l'enseignement supérieur, et construire une communauté académique solidaire qui contribue au développement global du pays.
+                    {t('about.mission.description')}
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-green-600 mb-3 flex items-center gap-2">
                     <TrendingUp className="h-6 w-6" />
-                    Vision
+                    {t('about.mission.vision')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Être le syndicat leader au Maroc et dans la région pour représenter les professeurs universitaires et développer l'enseignement supérieur, tout en préservant les plus hautes valeurs académiques et professionnelles.
+                    {t('about.mission.visionDescription')}
                   </p>
                 </div>
               </div>
@@ -183,10 +181,10 @@ export const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nos Valeurs Fondamentales
+              {t('about.values.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Les valeurs qui guident notre travail et définissent notre identité en tant que syndicat académique professionnel
+              {t('about.values.subtitle')}
             </p>
           </motion.div>
 
@@ -253,7 +251,7 @@ export const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Notre Histoire et Parcours
+              {t('about.history.title')}
             </h2>
           </motion.div>
 
@@ -298,10 +296,10 @@ export const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Direction du Syndicat
+              {t('about.leadership.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une équipe dirigeante distinguée de professeurs universitaires expérimentés et compétents
+              {t('about.leadership.subtitle')}
             </p>
           </motion.div>
 
@@ -339,17 +337,17 @@ export const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-6">
-              Rejoignez Notre Communauté Académique
+              {t('about.cta.title')}
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Faites partie du syndicat leader des professeurs universitaires au Maroc
+              {t('about.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:shadow-lg hover:scale-105">
-                Adhérer Maintenant
+                {t('about.cta.joinNow')}
               </button>
               <button className="border-2 border-white text-white hover:bg-white hover:text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-                Nous Contacter
+                {t('about.cta.contactUs')}
               </button>
             </div>
           </motion.div>

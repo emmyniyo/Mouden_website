@@ -115,6 +115,25 @@
     }
   },
   "admin": {
+    "sidebar": {
+      "title": "Admin Panel",
+      "subtitle": "Union Management",
+      "dashboard": "Dashboard",
+      "analytics": "Analytics",
+      "approvals": "Approvals",
+      "userManagement": "User Management",
+      "documents": "Documents",
+      "news": "News",
+      "notifications": "Notifications",
+      "security": "Security",
+      "settings": "Settings",
+      "help": "Help & Support",
+      "adminUser": "Admin User",
+      "adminRole": "Administrator",
+      "editorRole": "Editor",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
     "dashboard": {
       "title": "Administrator Dashboard",
       "welcome": "Welcome back",
@@ -242,5 +261,496 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Moroccan University Teachers Union",
+      "subtitle": "For excellence in higher education and guaranteed rights for university professors in Morocco",
+      "cta": "Join Our Union",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose Our Union?",
+      "subtitle": "We provide comprehensive support and resources to help educators thrive in their careers.",
+      "feature1": {
+        "title": "Professional Support",
+        "description": "Access to legal advice, professional development, and career guidance."
+      },
+      "feature2": {
+        "title": "Community Network",
+        "description": "Connect with fellow educators and share experiences and knowledge."
+      },
+      "feature3": {
+        "title": "Advocacy",
+        "description": "We fight for your rights and better working conditions."
+      },
+      "feature4": {
+        "title": "Resources",
+        "description": "Access to educational materials, research tools, and training programs."
+      }
+    },
+    "cta": {
+      "title": "Ready to Make a Difference?",
+      "subtitle": "Join our community of dedicated educators and help shape the future of education.",
+      "button": "Join Our Union"
+    },
+    "news": {
+      "title": "Latest News",
+      "viewAll": "View All News",
+      "readMore": "Read More",
+      "articles": {
+        "professionalDevelopment": {
+          "title": "Launch of New Professional Development Program for University Professors",
+          "excerpt": "Comprehensive training opportunities now available for all union members in various academic specializations"
+        },
+        "salaryNegotiations": {
+          "title": "Positive Results from Salary and University Benefits Negotiations",
+          "excerpt": "The union secures a 12% salary increase and improved benefits for all university professors"
+        },
+        "conferenceRegistration": {
+          "title": "Registration Opens for Annual University Education Conference",
+          "excerpt": "Join us for three days of learning and academic and professional networking opportunities"
+        }
+      }
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "noEvents": "No upcoming events at the moment",
+      "at": "at",
+      "list": {
+        "monthlyAssembly": {
+          "title": "Monthly Union Assembly",
+          "location": "Union Headquarters - Rabat"
+        },
+        "workshop": {
+          "title": "Professional Development Workshop",
+          "location": "Training Center - Mohammed V University"
+        },
+        "recognition": {
+          "title": "Distinguished Members Recognition Ceremony",
+          "location": "Cultural Center - Casablanca"
+        }
+      }
+    },
+    "documents": {
+      "title": "Recent Documents",
+      "noDocuments": "No recent documents available",
+      "list": {
+        "collectiveAgreement": {
+          "title": "Collective Bargaining Agreement 2025",
+          "type": "PDF Document",
+          "size": "2.4 MB"
+        },
+        "memberBenefits": {
+          "title": "Member Benefits Guide",
+          "type": "PDF Document", 
+          "size": "1.8 MB"
+        },
+        "professionalStandards": {
+          "title": "University Professional Standards Guide",
+          "type": "PDF Document",
+          "size": "3.2 MB"
+        }
+      }
+    },
+    "stats": {
+      "activeMembers": "Active Members",
+      "universities": "Universities and Institutions",
+      "yearsOfService": "Years of Service",
+      "eventsOrganized": "Events Organized",
+      "memberSatisfaction": "Member Satisfaction"
+    }
+  },
+  "news": {
+    "title": "News and Events",
+    "subtitle": "Stay informed about the latest union news, announcements and upcoming events",
+    "search": {
+      "placeholder": "Search news and events...",
+      "noResults": "No articles found matching your search"
+    },
+    "filters": {
+      "all": "All",
+      "news": "News",
+      "announcements": "Announcements",
+      "events": "Events",
+      "featured": "Featured"
+    },
+    "article": {
+      "readMore": "Read More",
+      "publishedBy": "Published by",
+      "on": "on",
+      "category": "Category",
+      "share": "Share",
+      "download": "Download"
+    },
+    "events": {
+      "upcoming": "Upcoming Events",
+      "past": "Past Events",
+      "register": "Register",
+      "location": "Location",
+      "date": "Date",
+      "time": "Time",
+      "types": {
+        "meeting": "Meetings",
+        "workshop": "Workshops",
+        "conference": "Conferences",
+        "social": "Social"
+      },
+      "mockData": {
+        "articles": {
+          "professionalDevelopment": {
+            "title": "New Professional Development Program Launched",
+            "excerpt": "Comprehensive training opportunities now available for all union members with a focus on modern teaching methodologies."
+          },
+          "salaryNegotiations": {
+            "title": "Positive Results from Salary Negotiations",
+            "excerpt": "The union secures an 8% salary increase and improved benefits package for all members effective immediately."
+          },
+          "conferenceRegistration": {
+            "title": "Registration Opens for Annual Education Conference",
+            "excerpt": "Join us for three days of learning and networking opportunities with leading education experts."
+          }
+        },
+        "events": {
+          "monthlyAssembly": {
+            "title": "Monthly Union Assembly",
+            "description": "Regular meeting to discuss union affairs and member concerns"
+          },
+          "workshop": {
+            "title": "Professional Development Workshop",
+            "description": "Interactive session on modern teaching methods and educational technology"
+          },
+          "conference": {
+            "title": "Annual Education Conference",
+            "description": "Three-day conference featuring keynote speakers and breakout sessions"
+          }
+        }
+      }
+    }
+  },
+  "documents": {
+    "title": "Document Center",
+    "subtitle": "Access important union documents, agreements and resources",
+    "search": {
+      "placeholder": "Search documents...",
+      "noResults": "No documents found matching your search"
+    },
+    "filters": {
+      "all": "All Documents",
+      "agreements": "Agreements",
+      "policies": "Policies",
+      "forms": "Forms",
+      "reports": "Reports",
+      "public": "Public",
+      "membersOnly": "Members Only"
+    },
+    "document": {
+      "download": "Download",
+      "preview": "Preview",
+      "size": "Size",
+      "uploaded": "Uploaded",
+      "downloads": "Downloads",
+      "category": "Category",
+      "type": "Type"
+    },
+    "loginRequired": {
+      "title": "Access More Documents",
+      "message": "Log in as a union member to access exclusive documents and resources.",
+      "button": "Log In"
+    },
+    "upload": {
+      "title": "Upload Document",
+      "selectFile": "Select File",
+      "dragDrop": "Drag and drop files here, or click to select",
+      "supportedFormats": "Supported formats: PDF, DOC, DOCX, XLS, XLSX, TXT",
+      "maxSize": "Maximum file size: 10MB",
+      "upload": "Upload",
+      "uploading": "Uploading...",
+      "success": "Document uploaded successfully",
+      "error": "Error uploading document"
+    },
+    "sort": {
+      "title": "Sort by",
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "name": "Name A-Z",
+      "size": "Size",
+      "downloads": "Most Downloaded"
+    }
+  },
+  "members": {
+    "title": "Member Directory",
+    "subtitle": "Connect with your fellow university professors across Morocco",
+    "loginRequired": {
+      "title": "Login Required",
+      "message": "Please log in to access the member directory"
+    },
+    "search": {
+      "placeholder": "Search members...",
+      "noResults": "No members found",
+      "noResultsMessage": "Try adjusting your search criteria"
+    },
+    "filters": {
+      "allUniversities": "All Universities",
+      "allFaculties": "All Faculties",
+      "membersCount": "members"
+    },
+    "member": {
+      "specialization": "Specialization",
+      "memberSince": "Member since",
+      "sendMessage": "Send Message"
+    },
+    "universities": {
+      "mohammedV": "Mohammed V University - Rabat",
+      "hassanII": "Hassan II University - Casablanca",
+      "sidiMohamed": "Sidi Mohamed Ben Abdellah University - Fes",
+      "cadiAyyad": "Cadi Ayyad University - Marrakech",
+      "ibnTofail": "Ibn Tofail University - Kenitra"
+    },
+    "departments": {
+      "sciences": "Faculty of Sciences",
+      "letters": "Faculty of Letters and Human Sciences",
+      "medicine": "Faculty of Medicine and Pharmacy",
+      "law": "Faculty of Legal and Economic Sciences",
+      "engineering": "Faculty of Engineering",
+      "education": "Faculty of Education"
+    },
+    "positions": {
+      "professor": "Higher Education Professor",
+      "habilitated": "Habilitated Professor",
+      "assistant": "Assistant Professor"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for any questions or assistance",
+    "form": {
+      "title": "Send us a Message",
+      "successMessage": "Message sent successfully!",
+      "fields": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your full name",
+        "email": "your.email@example.com",
+        "subject": "What is this about?",
+        "message": "Tell us about your request..."
+      },
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "subjectRequired": "Subject is required",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must contain at least 10 characters"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": {
+        "title": "Send us an Email",
+        "description": "Send us an email anytime"
+      },
+      "phone": {
+        "title": "Call us",
+        "description": "Monday to Friday, 9am - 5pm"
+      },
+      "address": {
+        "title": "Visit us",
+        "description": "Our office is open to members"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "description": "Closed on Sundays and holidays"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "membership": {
+          "question": "How to become a union member?",
+          "answer": "You can apply for membership by filling out our registration form and paying the annual fee. Membership is open to all certified teachers."
+        },
+        "benefits": {
+          "question": "What benefits do members receive?",
+          "answer": "Members receive legal protection, professional development opportunities, access to exclusive resources and representation in salary negotiations."
+        },
+        "documents": {
+          "question": "How can I access member-only documents?",
+          "answer": "After logging into your member account, you can access all private documents through our document center."
+        },
+        "grievance": {
+          "question": "How to file a grievance?",
+          "answer": "Download the grievance form from our document center or contact our office directly for help with the process."
+        }
+      }
+    },
+    "emergency": {
+      "title": "Emergency Support",
+      "description": "For urgent union matters or legal emergencies, contact our 24/7 helpline"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "accessDenied": {
+      "title": "Access Denied",
+      "message": "Please log in to view your profile"
+    },
+    "header": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "roles": {
+        "admin": "Administrator",
+        "editor": "Editor",
+        "member": "Member",
+        "visitor": "Visitor"
+      }
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "fields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phone": "Phone Number",
+        "university": "University",
+        "department": "Faculty/Department",
+        "position": "Position",
+        "specialization": "Specialization"
+      },
+      "labels": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "phone": "Phone",
+        "university": "University",
+        "position": "Position",
+        "memberSince": "Member since"
+      },
+      "placeholders": {
+        "notSpecified": "Not specified"
+      },
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required"
+      },
+      "positions": {
+        "professor": "Higher Education Professor",
+        "habilitated": "Habilitated Professor",
+        "assistant": "Assistant Professor",
+        "visitor": "Visiting Professor"
+      },
+      "actions": {
+        "save": "Save Changes",
+        "cancel": "Cancel"
+      }
+    },
+    "membership": {
+      "title": "Membership Status",
+      "type": "Membership Type",
+      "status": "Status",
+      "renewalDate": "Renewal Date",
+      "types": {
+        "full": "Full Membership",
+        "associate": "Associate Membership",
+        "student": "Student Membership"
+      },
+      "statuses": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending",
+        "expired": "Expired"
+      }
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "actions": {
+        "downloaded": "Downloaded:",
+        "viewed": "Viewed:",
+        "registered": "Registered for:"
+      },
+      "items": {
+        "benefitsGuide": "Benefits Guide 2025",
+        "unionNews": "Union News",
+        "workshop": "Professional Development Workshop"
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "changePassword": "Change Password",
+      "downloadCard": "Download Member Card",
+      "viewHistory": "View Activity History"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Our Union",
+      "subtitle": "Moroccan University Teachers Union - A united voice for excellence in higher education"
+    },
+    "mission": {
+      "sectionTitle": "Our Mission and Vision",
+      "title": "Mission",
+      "description": "We work to defend the rights and interests of university professors in Morocco, improve the quality of higher education, and build a united academic community that contributes to the overall development of the country.",
+      "vision": "Vision",
+      "visionDescription": "To be the leading union in Morocco and the region for representing university professors and developing higher education, while preserving the highest academic and professional values."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The values that guide our work and define our identity as a professional academic union",
+      "rightsDefense": {
+        "title": "Rights Defense",
+        "description": "We firmly defend the rights of university professors and guarantee fair working conditions"
+      },
+      "academicExcellence": {
+        "title": "Academic Excellence",
+        "description": "We promote high-quality teaching and research standards in Moroccan universities"
+      },
+      "solidarity": {
+        "title": "Solidarity",
+        "description": "We build a united community that supports and helps each member grow professionally"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We encourage pedagogical innovation and the adoption of modern teaching methods"
+      }
+    },
+    "history": {
+      "title": "Our History and Journey",
+      "timeline": {
+        "founding": {
+          "year": "1995",
+          "title": "Union Foundation",
+          "description": "Creation of the Moroccan University Teachers Union with the mission of defending professors' rights"
+        },
+        "recognition": {
+          "year": "2000",
+          "title": "Official Recognition",
+          "description": "Official recognition by the Ministry of Higher Education and establishment of partnerships"
+        },
+        "expansion": {
+          "year": "2010",
+          "title": "National Expansion",
+          "description": "Expansion to all Moroccan universities and creation of regional branches"
+        },
+        "digital": {
+          "year": "2020",
+          "title": "Digital Transformation",
+          "description": "Launch of digital services and online platforms for member support"
+        }
+      }
+    },
+    "leadership": {
+      "title": "Leadership Team",
+      "subtitle": "A distinguished leadership team of experienced and competent university professors"
+    },
+    "cta": {
+      "title": "Join Our Academic Community",
+      "subtitle": "Be part of the leading union of university professors in Morocco",
+      "joinNow": "Join Now",
+      "contactUs": "Contact Us"
+    }
   }
 }

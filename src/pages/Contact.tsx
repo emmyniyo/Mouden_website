@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   Mail, 
   Phone, 
@@ -20,19 +21,20 @@ interface ContactForm {
   message: string;
 }
 
-const schema = yup.object({
-  name: yup.string().required('Le nom est requis'),
-  email: yup.string().email('Email invalide').required('L\'email est requis'),
-  subject: yup.string().required('Le sujet est requis'),
-  message: yup.string().required('Le message est requis').min(10, 'Le message doit contenir au moins 10 caractères')
+const createSchema = (t: any) => yup.object({
+  name: yup.string().required(t('contact.validation.nameRequired')),
+  email: yup.string().email(t('contact.validation.emailInvalid')).required(t('contact.validation.emailRequired')),
+  subject: yup.string().required(t('contact.validation.subjectRequired')),
+  message: yup.string().required(t('contact.validation.messageRequired')).min(10, t('contact.validation.messageMinLength'))
 });
 
 export const Contact = () => {
+  const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(createSchema(t)) as any
   });
 
   const onSubmit = async (data: ContactForm) => {
@@ -53,46 +55,46 @@ export const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-blue-600" />,
-      title: 'Envoyez-nous un Email',
+      title: t('contact.info.email.title'),
       content: 'contact@syndicat-professeurs.ma',
-      description: 'Envoyez-nous un email à tout moment'
+      description: t('contact.info.email.description')
     },
     {
       icon: <Phone className="h-6 w-6 text-green-600" />,
-      title: 'Appelez-nous',
+      title: t('contact.info.phone.title'),
       content: '+212 5 37 XX XX XX',
-      description: 'Lundi au Vendredi, 9h - 17h'
+      description: t('contact.info.phone.description')
     },
     {
       icon: <MapPin className="h-6 w-6 text-red-600" />,
-      title: 'Visitez-nous',
+      title: t('contact.info.address.title'),
       content: 'Avenue de l\'Université\nRabat 10000, Maroc',
-      description: 'Notre bureau est ouvert aux membres'
+      description: t('contact.info.address.description')
     },
     {
       icon: <Clock className="h-6 w-6 text-purple-600" />,
-      title: 'Heures d\'Ouverture',
+      title: t('contact.info.hours.title'),
       content: 'Lun - Ven: 9h00 - 17h00\nSam: 10h00 - 14h00',
-      description: 'Fermé les dimanches et jours fériés'
+      description: t('contact.info.hours.description')
     }
   ];
 
   const faqItems = [
     {
-      question: 'Comment devenir membre du syndicat ?',
-      answer: 'Vous pouvez postuler pour l\'adhésion en remplissant notre formulaire d\'inscription et en payant la cotisation annuelle. L\'adhésion est ouverte à tous les enseignants certifiés.'
+      question: t('contact.faq.questions.membership.question'),
+      answer: t('contact.faq.questions.membership.answer')
     },
     {
-      question: 'Quels avantages reçoivent les membres ?',
-      answer: 'Les membres reçoivent une protection juridique, des opportunités de développement professionnel, l\'accès à des ressources exclusives et une représentation dans les négociations salariales.'
+      question: t('contact.faq.questions.benefits.question'),
+      answer: t('contact.faq.questions.benefits.answer')
     },
     {
-      question: 'Comment puis-je accéder aux documents réservés aux membres ?',
-      answer: 'Après vous être connecté à votre compte membre, vous pouvez accéder à tous les documents privés via notre centre de documents.'
+      question: t('contact.faq.questions.documents.question'),
+      answer: t('contact.faq.questions.documents.answer')
     },
     {
-      question: 'Comment déposer un grief ?',
-      answer: 'Téléchargez le formulaire de grief depuis notre centre de documents ou contactez directement notre bureau pour obtenir de l\'aide avec le processus.'
+      question: t('contact.faq.questions.grievance.question'),
+      answer: t('contact.faq.questions.grievance.answer')
     }
   ];
 
@@ -105,9 +107,9 @@ export const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Nous Contacter</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('contact.title')}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Entrez en contact avec notre équipe pour toute question ou assistance
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -122,7 +124,7 @@ export const Contact = () => {
             <div className="bg-white rounded-xl shadow-lg p-8">
               <div className="flex items-center gap-3 mb-6">
                 <MessageSquare className="h-6 w-6 text-blue-600" />
-                <h2 className="text-2xl font-bold text-gray-900">Envoyez-nous un Message</h2>
+                <h2 className="text-2xl font-bold text-gray-900">{t('contact.form.title')}</h2>
               </div>
 
               {isSubmitted && (
@@ -132,7 +134,7 @@ export const Contact = () => {
                   className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg mb-6 flex items-center gap-2"
                 >
                   <CheckCircle className="h-5 w-5" />
-                  Message envoyé avec succès !
+                  {t('contact.form.successMessage')}
                 </motion.div>
               )}
 
@@ -140,13 +142,13 @@ export const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom Complet
+                      {t('contact.form.fields.name')}
                     </label>
                     <input
                       {...register('name')}
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Votre nom complet"
+                      placeholder={t('contact.form.placeholders.name')}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -155,13 +157,13 @@ export const Contact = () => {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Adresse Email
+                      {t('contact.form.fields.email')}
                     </label>
                     <input
                       {...register('email')}
                       type="email"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="votre.email@exemple.com"
+                      placeholder={t('contact.form.placeholders.email')}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -171,13 +173,13 @@ export const Contact = () => {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Sujet
+                    {t('contact.form.fields.subject')}
                   </label>
                   <input
                     {...register('subject')}
                     type="text"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="De quoi s'agit-il ?"
+                    placeholder={t('contact.form.placeholders.subject')}
                   />
                   {errors.subject && (
                     <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>
@@ -186,13 +188,13 @@ export const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                    {t('contact.form.fields.message')}
                   </label>
                   <textarea
                     {...register('message')}
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Parlez-nous de votre demande..."
+                    placeholder={t('contact.form.placeholders.message')}
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
@@ -209,7 +211,7 @@ export const Contact = () => {
                   ) : (
                     <>
                       <Send className="h-5 w-5" />
-                      Envoyer le Message
+                      {t('contact.form.submit')}
                     </>
                   )}
                 </button>
@@ -226,7 +228,7 @@ export const Contact = () => {
           >
             {/* Contact Information */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Informations de Contact</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{t('contact.info.title')}</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start gap-4">
@@ -245,7 +247,7 @@ export const Contact = () => {
 
             {/* FAQ */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Questions Fréquemment Posées</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{t('contact.faq.title')}</h3>
               <div className="space-y-4">
                 {faqItems.map((faq, index) => (
                   <details key={index} className="group">
@@ -267,9 +269,9 @@ export const Contact = () => {
           transition={{ delay: 0.6 }}
           className="mt-12 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl shadow-lg p-8 text-center"
         >
-          <h3 className="text-2xl font-bold mb-4">Support d'Urgence</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('contact.emergency.title')}</h3>
           <p className="text-red-100 mb-6">
-            Pour les questions syndicales urgentes ou les urgences juridiques, contactez notre ligne d'assistance 24h/24
+            {t('contact.emergency.description')}
           </p>
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <Phone className="h-6 w-6" />

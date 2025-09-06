@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import {
   Users,
@@ -7,9 +8,7 @@ import {
   Filter,
   Mail,
   Phone,
-  MapPin,
   User,
-  Award,
   Calendar,
   BookOpen,
   GraduationCap
@@ -97,28 +96,29 @@ const mockMembers: Member[] = [
 ];
 
 export const MemberDirectory = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedUniversity, setSelectedUniversity] = useState('all');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
   const universities = [
-    'all',
-    'Université Mohammed V - Rabat',
-    'Université Hassan II - Casablanca',
-    'Université Sidi Mohamed Ben Abdellah - Fès',
-    'Université Cadi Ayyad - Marrakech',
-    'Université Ibn Tofail - Kénitra'
+    { value: 'all', label: t('members.filters.allUniversities') },
+    { value: 'Université Mohammed V - Rabat', label: t('members.universities.mohammedV') },
+    { value: 'Université Hassan II - Casablanca', label: t('members.universities.hassanII') },
+    { value: 'Université Sidi Mohamed Ben Abdellah - Fès', label: t('members.universities.sidiMohamed') },
+    { value: 'Université Cadi Ayyad - Marrakech', label: t('members.universities.cadiAyyad') },
+    { value: 'Université Ibn Tofail - Kénitra', label: t('members.universities.ibnTofail') }
   ];
 
   const departments = [
-    'all',
-    'Faculté des Sciences',
-    'Faculté des Lettres et Sciences Humaines',
-    'Faculté de Médecine et de Pharmacie',
-    'Faculté des Sciences Juridiques et Économiques',
-    'Faculté d\'Ingénierie',
-    'Faculté d\'Éducation'
+    { value: 'all', label: t('members.filters.allFaculties') },
+    { value: 'Faculté des Sciences', label: t('members.departments.sciences') },
+    { value: 'Faculté des Lettres et Sciences Humaines', label: t('members.departments.letters') },
+    { value: 'Faculté de Médecine et de Pharmacie', label: t('members.departments.medicine') },
+    { value: 'Faculté des Sciences Juridiques et Économiques', label: t('members.departments.law') },
+    { value: 'Faculté d\'Ingénierie', label: t('members.departments.engineering') },
+    { value: 'Faculté d\'Éducation', label: t('members.departments.education') }
   ];
 
   const filteredMembers = mockMembers.filter(member => {
@@ -140,10 +140,10 @@ export const MemberDirectory = () => {
         <div className="text-center">
           <Users className="h-16 w-16 text-gray-300 mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Connexion Requise
+            {t('members.loginRequired.title')}
           </h1>
           <p className="text-gray-600">
-            Veuillez vous connecter pour accéder au répertoire des membres
+            {t('members.loginRequired.message')}
           </p>
         </div>
       </div>
@@ -160,10 +160,10 @@ export const MemberDirectory = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Répertoire des Membres
+            {t('members.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Connectez-vous avec vos collègues professeurs universitaires à travers le Maroc
+            {t('members.subtitle')}
           </p>
         </motion.div>
 
@@ -179,7 +179,7 @@ export const MemberDirectory = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder="Rechercher des membres..."
+                placeholder={t('members.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -194,8 +194,8 @@ export const MemberDirectory = () => {
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white"
               >
                 {universities.map(university => (
-                  <option key={university} value={university}>
-                    {university === 'all' ? 'Toutes les universités' : university}
+                  <option key={university.value} value={university.value}>
+                    {university.label}
                   </option>
                 ))}
               </select>
@@ -208,15 +208,15 @@ export const MemberDirectory = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white"
               >
                 {departments.map(department => (
-                  <option key={department} value={department}>
-                    {department === 'all' ? 'Toutes les facultés' : department}
+                  <option key={department.value} value={department.value}>
+                    {department.label}
                   </option>
                 ))}
               </select>
             </div>
 
             <div className="text-sm text-gray-600 flex items-center">
-              {filteredMembers.length} membres
+              {filteredMembers.length} {t('members.filters.membersCount')}
             </div>
           </div>
         </motion.div>
@@ -253,7 +253,7 @@ export const MemberDirectory = () => {
                 <div className="flex items-center gap-3">
                   <BookOpen className="h-4 w-4 text-gray-400" />
                   <div className="text-sm">
-                    <p className="text-gray-600">Spécialisation</p>
+                    <p className="text-gray-600">{t('members.member.specialization')}</p>
                     <p className="font-medium text-gray-900">{member.specialization}</p>
                   </div>
                 </div>
@@ -261,7 +261,7 @@ export const MemberDirectory = () => {
                 <div className="flex items-center gap-3">
                   <Calendar className="h-4 w-4 text-gray-400" />
                   <div className="text-sm">
-                    <p className="text-gray-600">Membre depuis</p>
+                    <p className="text-gray-600">{t('members.member.memberSince')}</p>
                     <p className="font-medium text-gray-900">
                       {new Date(member.joinDate).toLocaleDateString('fr-FR')}
                     </p>
@@ -279,7 +279,7 @@ export const MemberDirectory = () => {
               <div className="mt-6 pt-4 border-t border-gray-200">
                 <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
                   <Mail className="h-4 w-4" />
-                  Envoyer un Message
+                  {t('members.member.sendMessage')}
                 </button>
               </div>
             </motion.div>
@@ -294,10 +294,10 @@ export const MemberDirectory = () => {
           >
             <Users className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
-              Aucun membre trouvé
+              {t('members.search.noResults')}
             </h3>
             <p className="text-gray-600">
-              Essayez d'ajuster vos critères de recherche
+              {t('members.search.noResultsMessage')}
             </p>
           </motion.div>
         )}

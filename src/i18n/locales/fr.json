@@ -36,7 +36,7 @@
   },
   "navigation": {
     "home": "Accueil",
-    "about": "À propos",
+    "about": "Àpropos",
     "news": "Actualités",
     "documents": "Documents",
     "contact": "Contact",
@@ -115,6 +115,25 @@
     }
   },
   "admin": {
+    "sidebar": {
+      "title": "Panneau Admin",
+      "subtitle": "Gestion du Syndicat",
+      "dashboard": "Tableau de Bord",
+      "analytics": "Analytiques",
+      "approvals": "Approbations",
+      "userManagement": "Gestion des Utilisateurs",
+      "documents": "Documents",
+      "news": "Actualités",
+      "notifications": "Notifications",
+      "security": "Sécurité",
+      "settings": "Paramètres",
+      "help": "Aide & Support",
+      "adminUser": "Utilisateur Admin",
+      "adminRole": "Administrateur",
+      "editorRole": "Éditeur",
+      "profile": "Profile",
+      "logout": "Déconnexion"
+    },
     "dashboard": {
       "title": "Tableau de Bord Administrateur",
       "welcome": "Bon retour",
@@ -242,5 +261,466 @@
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",
     "contact": "Nous contacter"
+  },
+  "home": {
+    "hero": {
+      "title": "Syndicat des Professeurs Universitaires Marocains",
+      "subtitle": "Pour un enseignement supérieur d'excellence et des droits garantis aux professeurs universitaires au Maroc",
+      "cta": "Rejoindre Notre Syndicat",
+      "learnMore": "En Savoir Plus"
+    },
+    "features": {
+      "title": "Pourquoi Choisir Notre Syndicat ?",
+      "subtitle": "Nous offrons un soutien complet et des ressources pour aider les éducateurs à s'épanouir dans leur carrière.",
+      "feature1": {
+        "title": "Soutien Professionnel",
+        "description": "Accès aux conseils juridiques, au développement professionnel et à l'orientation de carrière."
+      },
+      "feature2": {
+        "title": "Réseau Communautaire",
+        "description": "Connectez-vous avec d'autres éducateurs et partagez expériences et connaissances."
+      },
+      "feature3": {
+        "title": "Défense des Droits",
+        "description": "Nous nous battons pour vos droits et de meilleures conditions de travail."
+      },
+      "feature4": {
+        "title": "Ressources",
+        "description": "Accès aux matériels éducatifs, outils de recherche et programmes de formation."
+      }
+    },
+    "cta": {
+      "title": "Prêt à Faire la Différence ?",
+      "subtitle": "Rejoignez notre communauté d'éducateurs dévoués et aidez à façonner l'avenir de l'éducation.",
+      "button": "Rejoindre Notre Syndicat"
+    },
+    "news": {
+      "title": "Dernières Actualités",
+      "viewAll": "Voir Toutes les Actualités",
+      "readMore": "Lire la Suite",
+      "articles": {
+        "professionalDevelopment": {
+          "title": "Lancement d'un nouveau programme de développement professionnel pour les professeurs universitaires",
+          "excerpt": "Opportunités de formation complètes maintenant disponibles pour tous les membres du syndicat dans diverses spécialisations académiques"
+        },
+        "salaryNegotiations": {
+          "title": "Résultats positifs des négociations salariales et des avantages universitaires",
+          "excerpt": "Le syndicat obtient une augmentation de 12% des salaires et une amélioration des avantages pour tous les professeurs universitaires"
+        },
+        "conferenceRegistration": {
+          "title": "Ouverture des inscriptions à la conférence annuelle de l'enseignement universitaire",
+          "excerpt": "Rejoignez-nous pour trois jours d'apprentissage et d'opportunités de réseautage académique et professionnel"
+        }
+      }
+    },
+    "events": {
+      "title": "Événements à Venir",
+      "noEvents": "Aucun événement à venir pour le moment",
+      "at": "à",
+      "list": {
+        "monthlyAssembly": {
+          "title": "Assemblée Mensuelle du Syndicat",
+          "location": "Siège du Syndicat - Rabat"
+        },
+        "workshop": {
+          "title": "Atelier de Développement Professionnel",
+          "location": "Centre de Formation - Université Mohammed V"
+        },
+        "recognition": {
+          "title": "Cérémonie de Reconnaissance des Membres Distingués",
+          "location": "Centre Culturel - Casablanca"
+        }
+      }
+    },
+    "documents": {
+      "title": "Documents Récents",
+      "noDocuments": "Aucun document récent disponible",
+      "list": {
+        "collectiveAgreement": {
+          "title": "Accord de Négociation Collective 2025",
+          "type": "Document PDF",
+          "size": "2,4 Mo"
+        },
+        "memberBenefits": {
+          "title": "Guide des Avantages des Membres",
+          "type": "Document PDF",
+          "size": "1,8 Mo"
+        },
+        "professionalStandards": {
+          "title": "Guide des Normes Professionnelles Universitaires",
+          "type": "Document PDF",
+          "size": "3,2 Mo"
+        }
+      }
+    },
+    "stats": {
+      "activeMembers": "Membres Actifs",
+      "universities": "Universités et Institutions",
+      "yearsOfService": "Années de Service",
+      "eventsOrganized": "Événements Organisés",
+      "memberSatisfaction": "Satisfaction des Membres"
+    }
+  },
+  "news": {
+    "title": "Actualités et Événements",
+    "subtitle": "Restez informé des dernières actualités du syndicat, des annonces et des événements à venir",
+    "search": {
+      "placeholder": "Rechercher des actualités et événements...",
+      "noResults": "Aucun article trouvé correspondant à votre recherche"
+    },
+    "filters": {
+      "all": "Tout",
+      "news": "Actualités",
+      "announcements": "Annonces",
+      "events": "Événements",
+      "featured": "En Vedette"
+    },
+    "article": {
+      "readMore": "Lire la Suite",
+      "publishedBy": "Publié par",
+      "on": "le",
+      "category": "Catégorie",
+      "share": "Partager",
+      "download": "Télécharger"
+    },
+    "events": {
+      "upcoming": "Événements à Venir",
+      "past": "Événements Passés",
+      "register": "S'inscrire",
+      "location": "Lieu",
+      "date": "Date",
+      "time": "Heure",
+      "types": {
+        "meeting": "Réunions",
+        "workshop": "Ateliers",
+        "conference": "Conférences",
+        "social": "Social"
+      }
+    }
+  },
+  "documents": {
+    "title": "Centre de Documents",
+    "subtitle": "Accédez aux documents importants du syndicat, aux accords et aux ressources",
+    "search": {
+      "placeholder": "Rechercher des documents...",
+      "noResults": "Aucun document trouvé correspondant à votre recherche"
+    },
+    "filters": {
+      "all": "Tous les Documents",
+      "agreements": "Accords",
+      "policies": "Politiques",
+      "forms": "Formulaires",
+      "reports": "Rapports",
+      "public": "Public",
+      "membersOnly": "Membres Seulement"
+    },
+    "document": {
+      "download": "Télécharger",
+      "preview": "Aperçu",
+      "size": "Taille",
+      "uploaded": "Téléchargé",
+      "downloads": "Téléchargements",
+      "category": "Catégorie",
+      "type": "Type"
+    },
+    "loginRequired": {
+      "title": "Accéder à Plus de Documents",
+      "message": "Connectez-vous en tant que membre du syndicat pour accéder aux documents exclusifs et aux ressources.",
+      "button": "Se Connecter"
+    },
+    "upload": {
+      "title": "Télécharger un Document",
+      "selectFile": "Sélectionner un Fichier",
+      "dragDrop": "Glissez-déposez les fichiers ici, ou cliquez pour sélectionner",
+      "supportedFormats": "Formats supportés : PDF, DOC, DOCX, XLS, XLSX, TXT",
+      "maxSize": "Taille maximale du fichier : 10 Mo",
+      "upload": "Télécharger",
+      "uploading": "Téléchargement en cours...",
+      "success": "Document téléchargé avec succès",
+      "error": "Erreur lors du téléchargement du document"
+    },
+    "sort": {
+      "title": "Trier par",
+      "newest": "Plus Récent",
+      "oldest": "Plus Ancien",
+      "name": "Nom A-Z",
+      "size": "Taille",
+      "downloads": "Plus Téléchargé"
+    }
+  },
+  "members": {
+    "title": "Répertoire des Membres",
+    "subtitle": "Connectez-vous avec vos collègues professeurs universitaires à travers le Maroc",
+    "loginRequired": {
+      "title": "Connexion Requise",
+      "message": "Veuillez vous connecter pour accéder au répertoire des membres"
+    },
+    "search": {
+      "placeholder": "Rechercher des membres...",
+      "noResults": "Aucun membre trouvé",
+      "noResultsMessage": "Essayez d'ajuster vos critères de recherche"
+    },
+    "filters": {
+      "allUniversities": "Toutes les universités",
+      "allFaculties": "Toutes les facultés",
+      "membersCount": "membres"
+    },
+    "member": {
+      "specialization": "Spécialisation",
+      "memberSince": "Membre depuis",
+      "sendMessage": "Envoyer un Message"
+    },
+    "universities": {
+      "mohammedV": "Université Mohammed V - Rabat",
+      "hassanII": "Université Hassan II - Casablanca",
+      "sidiMohamed": "Université Sidi Mohamed Ben Abdellah - Fès",
+      "cadiAyyad": "Université Cadi Ayyad - Marrakech",
+      "ibnTofail": "Université Ibn Tofail - Kénitra"
+    },
+    "departments": {
+      "sciences": "Faculté des Sciences",
+      "letters": "Faculté des Lettres et Sciences Humaines",
+      "medicine": "Faculté de Médecine et de Pharmacie",
+      "law": "Faculté des Sciences Juridiques et Économiques",
+      "engineering": "Faculté d'Ingénierie",
+      "education": "Faculté d'Éducation"
+    },
+    "positions": {
+      "professor": "Professeur de l'Enseignement Supérieur",
+      "habilitated": "Professeur Habilité",
+      "assistant": "Professeur Assistant"
+    }
+  },
+  "contact": {
+    "title": "Nous Contacter",
+    "subtitle": "Entrez en contact avec notre équipe pour toute question ou assistance",
+    "form": {
+      "title": "Envoyez-nous un Message",
+      "successMessage": "Message envoyé avec succès !",
+      "fields": {
+        "name": "Nom Complet",
+        "email": "Adresse Email",
+        "subject": "Sujet",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Votre nom complet",
+        "email": "votre.email@exemple.com",
+        "subject": "De quoi s'agit-il ?",
+        "message": "Parlez-nous de votre demande..."
+      },
+      "submit": "Envoyer le Message",
+      "sending": "Envoi en cours..."
+    },
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "subjectRequired": "Le sujet est requis",
+      "messageRequired": "Le message est requis",
+      "messageMinLength": "Le message doit contenir au moins 10 caractères"
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "email": {
+        "title": "Envoyez-nous un Email",
+        "description": "Envoyez-nous un email à tout moment"
+      },
+      "phone": {
+        "title": "Appelez-nous",
+        "description": "Lundi au Vendredi, 9h - 17h"
+      },
+      "address": {
+        "title": "Visitez-nous",
+        "description": "Notre bureau est ouvert aux membres"
+      },
+      "hours": {
+        "title": "Heures d'Ouverture",
+        "description": "Fermé les dimanches et jours fériés"
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "questions": {
+        "membership": {
+          "question": "Comment devenir membre du syndicat ?",
+          "answer": "Vous pouvez postuler pour l'adhésion en remplissant notre formulaire d'inscription et en payant la cotisation annuelle. L'adhésion est ouverte à tous les enseignants certifiés."
+        },
+        "benefits": {
+          "question": "Quels avantages reçoivent les membres ?",
+          "answer": "Les membres reçoivent une protection juridique, des opportunités de développement professionnel, l'accès à des ressources exclusives et une représentation dans les négociations salariales."
+        },
+        "documents": {
+          "question": "Comment puis-je accéder aux documents réservés aux membres ?",
+          "answer": "Après vous être connecté à votre compte membre, vous pouvez accéder à tous les documents privés via notre centre de documents."
+        },
+        "grievance": {
+          "question": "Comment déposer un grief ?",
+          "answer": "Téléchargez le formulaire de grief depuis notre centre de documents ou contactez directement notre bureau pour obtenir de l'aide avec le processus."
+        }
+      }
+    },
+    "emergency": {
+      "title": "Support d'Urgence",
+      "description": "Pour les questions syndicales urgentes ou les urgences juridiques, contactez notre ligne d'assistance 24h/24"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "accessDenied": {
+      "title": "Accès Refusé",
+      "message": "Veuillez vous connecter pour voir votre profil"
+    },
+    "header": {
+      "edit": "Modifier",
+      "cancel": "Annuler",
+      "roles": {
+        "admin": "Administrateur",
+        "editor": "Éditeur",
+        "member": "Membre",
+        "visitor": "Visiteur"
+      }
+    },
+    "personalInfo": {
+      "title": "Informations Personnelles",
+      "fields": {
+        "firstName": "Prénom",
+        "lastName": "Nom de famille",
+        "phone": "Numéro de téléphone",
+        "university": "Université",
+        "department": "Faculté/Département",
+        "position": "Poste",
+        "specialization": "Spécialisation"
+      },
+      "labels": {
+        "fullName": "Nom complet",
+        "email": "Email",
+        "phone": "Téléphone",
+        "university": "Université",
+        "position": "Poste",
+        "memberSince": "Membre depuis"
+      },
+      "placeholders": {
+        "notSpecified": "Non spécifié"
+      },
+      "validation": {
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom de famille est requis"
+      },
+      "positions": {
+        "professor": "Professeur de l'Enseignement Supérieur",
+        "habilitated": "Professeur Habilité",
+        "assistant": "Professeur Assistant",
+        "visitor": "Professeur Visiteur"
+      },
+      "actions": {
+        "save": "Sauvegarder les Modifications",
+        "cancel": "Annuler"
+      }
+    },
+    "membership": {
+      "title": "Statut d'Adhésion",
+      "type": "Type d'adhésion",
+      "status": "Statut",
+      "renewalDate": "Date de renouvellement",
+      "types": {
+        "full": "Adhésion Complète",
+        "associate": "Adhésion Associée",
+        "student": "Adhésion Étudiante"
+      },
+      "statuses": {
+        "active": "Actif",
+        "inactive": "Inactif",
+        "pending": "En Attente",
+        "expired": "Expiré"
+      }
+    },
+    "activity": {
+      "title": "Activité Récente",
+      "actions": {
+        "downloaded": "Téléchargé:",
+        "viewed": "Consulté:",
+        "registered": "Inscrit à:"
+      },
+      "items": {
+        "benefitsGuide": "Guide des Avantages 2025",
+        "unionNews": "Nouvelles du Syndicat",
+        "workshop": "Atelier de Développement Professionnel"
+      }
+    },
+    "quickActions": {
+      "title": "Actions Rapides",
+      "changePassword": "Changer le mot de passe",
+      "downloadCard": "Télécharger la carte de membre",
+      "viewHistory": "Voir l'historique d'activité"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "À Propos de Notre Syndicat",
+      "subtitle": "Syndicat des Professeurs Universitaires Marocains - Une voix unie pour l'excellence de l'enseignement supérieur"
+    },
+    "mission": {
+      "sectionTitle": "Notre Mission et Vision",
+      "title": "Mission",
+      "description": "Nous œuvrons pour défendre les droits et intérêts des professeurs universitaires au Maroc, améliorer la qualité de l'enseignement supérieur, et construire une communauté académique solidaire qui contribue au développement global du pays.",
+      "vision": "Vision",
+      "visionDescription": "Être le syndicat leader au Maroc et dans la région pour représenter les professeurs universitaires et développer l'enseignement supérieur, tout en préservant les plus hautes valeurs académiques et professionnelles."
+    },
+    "values": {
+      "title": "Nos Valeurs Fondamentales",
+      "subtitle": "Les valeurs qui guident notre travail et définissent notre identité en tant que syndicat académique professionnel",
+      "rightsDefense": {
+        "title": "Défense des Droits",
+        "description": "Nous défendons fermement les droits des professeurs universitaires et garantissons des conditions de travail équitables"
+      },
+      "academicExcellence": {
+        "title": "Excellence Académique",
+        "description": "Nous promouvons des standards d'enseignement et de recherche de haute qualité dans les universités marocaines"
+      },
+      "solidarity": {
+        "title": "Solidarité",
+        "description": "Nous construisons une communauté unie qui soutient et aide chaque membre à grandir professionnellement"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous encourageons l'innovation pédagogique et l'adoption de méthodes d'enseignement modernes"
+      }
+    },
+    "history": {
+      "title": "Notre Histoire et Parcours",
+      "timeline": {
+        "founding": {
+          "year": "1995",
+          "title": "Fondation du Syndicat",
+          "description": "Création du Syndicat des Professeurs Universitaires Marocains avec pour mission de défendre les droits des professeurs"
+        },
+        "recognition": {
+          "year": "2000",
+          "title": "Reconnaissance Officielle",
+          "description": "Reconnaissance officielle par le Ministère de l'Enseignement Supérieur et établissement de partenariats"
+        },
+        "expansion": {
+          "year": "2010",
+          "title": "Expansion Nationale",
+          "description": "Expansion vers toutes les universités marocaines et création de branches régionales"
+        },
+        "digital": {
+          "year": "2020",
+          "title": "Transformation Numérique",
+          "description": "Lancement des services numériques et plateformes en ligne pour le soutien aux membres"
+        }
+      }
+    },
+    "leadership": {
+      "title": "Équipe Dirigeante",
+      "subtitle": "Une équipe dirigeante distinguée de professeurs universitaires expérimentés et compétents"
+    },
+    "cta": {
+      "title": "Rejoignez Notre Communauté Académique",
+      "subtitle": "Faites partie du syndicat leader des professeurs universitaires au Maroc",
+      "joinNow": "Adhérer Maintenant",
+      "contactUs": "Nous Contacter"
+    }
   }
 }
