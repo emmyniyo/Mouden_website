@@ -34,12 +34,12 @@ export const Header = () => {
             </div>
             <span className="font-bold text-lg text-gray-900">
               SNESUP – {t('navigation.home') === 'Home'
-                ? 'Moroccan University Teachers Union'
+                ? 'National Union of Higher Education'
                 : 'Syndicat National de l’Enseignement Supérieur'}
             </span>
 
             {/* <span className="font-bold text-lg text-gray-900">
-              {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat National de l’Enseignement Supérieur'}
+              {t('navigation.home') === 'Home' ? 'National Union of Higher Education' : 'Syndicat National de l’Enseignement Supérieur'}
             </span> */}
           </Link>
 

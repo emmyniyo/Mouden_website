@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide - Moroccan University Teachers Union Platform
+# 🚀 Deployment Guide - National Union of Higher Education Platform
 
 ## 📋 Pre-Deployment Checklist
 

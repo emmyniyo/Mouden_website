@@ -2,7 +2,7 @@
   "name": "moroccan-university-union-platform",
   "private": true,
   "version": "1.0.0",
-  "description": "Professional web platform for Moroccan University Teachers Union with multilingual support",
+  "description": "Professional web platform for National Union of Higher Education with multilingual support",
   "keywords": [
     "react",
     "typescript",
@@ -12,7 +12,7 @@
     "university",
     "union"
   ],
-  "author": "Moroccan University Teachers Union",
+  "author": "National Union of Higher Education",
   "type": "module",
   "scripts": {
     "dev": "vite",

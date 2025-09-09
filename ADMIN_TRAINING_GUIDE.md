@@ -1,4 +1,4 @@
-# 👨‍🏫 Admin Training Guide - Moroccan University Teachers Union Platform
+# 👨‍🏫 Admin Training Guide - National Union of Higher Education Platform
 
 ## 📚 Table of Contents
 1. [Getting Started](#getting-started)

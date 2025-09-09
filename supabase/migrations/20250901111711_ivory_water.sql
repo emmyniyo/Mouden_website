@@ -1,4 +1,4 @@
--- Moroccan University Teachers Union Database Schema
+-- National Union of Higher Education Database Schema
 -- MySQL 8.0+ Compatible
 -- Character Set: UTF8MB4 for full Unicode support including Arabic
 
@@ -397,7 +397,7 @@ INSERT INTO users (email, password_hash, first_name, last_name, role, university
 INSERT INTO system_settings (setting_key, setting_value, setting_type, description_ar, description_fr, description_en, is_public) VALUES
 ('site_name_ar', 'نقابة أساتذة الجامعات المغربية', 'string', 'اسم الموقع بالعربية', 'Nom du site en arabe', 'Site name in Arabic', TRUE),
 ('site_name_fr', 'Syndicat National de l’Enseignement Supérieur', 'string', 'اسم الموقع بالفرنسية', 'Nom du site en français', 'Site name in French', TRUE),
-('site_name_en', 'Moroccan University Teachers Union', 'string', 'اسم الموقع بالإنجليزية', 'Nom du site en anglais', 'Site name in English', TRUE),
+('site_name_en', 'National Union of Higher Education', 'string', 'اسم الموقع بالإنجليزية', 'Nom du site en anglais', 'Site name in English', TRUE),
 ('contact_email', 'contact@university-union.ma', 'string', 'البريد الإلكتروني للاتصال', 'Email de contact', 'Contact email', TRUE),
 ('support_email', 'support@university-union.ma', 'string', 'البريد الإلكتروني للدعم الفني', 'Email de support technique', 'Technical support email', TRUE),
 ('contact_phone', '+212 5 37 XX XX XX', 'string', 'رقم الهاتف للاتصال', 'Numéro de téléphone de contact', 'Contact phone number', TRUE),
@@ -514,7 +514,7 @@ DELIMITER ;
 INSERT INTO news_articles (title_ar, title_fr, title_en, slug, excerpt_ar, excerpt_fr, excerpt_en, content_ar, content_fr, content_en, category_id, author_id, is_published, is_featured, publish_date) VALUES
 ('إطلاق برنامج جديد للتطوير المهني', 'Lancement d\'un nouveau programme de développement professionnel', 'Launch of New Professional Development Program', 'new-professional-development-program', 
 'برنامج شامل للتطوير المهني متاح الآن لجميع أعضاء النقابة', 'Programme complet de développement professionnel maintenant disponible pour tous les membres du syndicat', 'Comprehensive professional development program now available for all union members',
-Syndicat des Professeurs Universitaires'تعلن نقابة أساتذة الجامعات المغربية عن إطلاق برنامج جديد ومتطور للتطوير المهني...', 'Le  Marocains annonce le lancement d\'un nouveau programme de développement professionnel...', 'The Moroccan University Teachers Union announces the launch of a new professional development program...',
+Syndicat des Professeurs Universitaires'تعلن نقابة أساتذة الجامعات المغربية عن إطلاق برنامج جديد ومتطور للتطوير المهني...', 'Le  Marocains annonce le lancement d\'un nouveau programme de développement professionnel...', 'The National Union of Higher Education announces the launch of a new professional development program...',
 (SELECT id FROM categories WHERE slug = 'professional-dev'), 1, TRUE, TRUE, NOW());
 
 -- Clean up and optimize
@@ -522,4 +522,4 @@ ANALYZE TABLE users, documents, news_articles, events, categories;
 OPTIMIZE TABLE users, documents, news_articles, events, categories;
 
 -- Final message
-SELECT 'Database schema created successfully for Moroccan University Teachers Union Platform' as message;
+SELECT 'Database schema created successfully for National Union of Higher Education Platform' as message;

@@ -1,4 +1,4 @@
-# Moroccan University Teachers Union Platform
+# National Union of Higher Education Platform
 
 A comprehensive, multilingual web platform designed specifically for university teachers' unions in Morocco, supporting Arabic, French, and English languages with full RTL support.
 
@@ -288,7 +288,7 @@ INSERT INTO users (email, password_hash, first_name, last_name, role, university
 INSERT INTO system_settings (setting_key, setting_value, setting_type, description_ar, description_fr, description_en, is_public) VALUES
 ('site_name_ar', 'نقابة أساتذة الجامعات المغربية', 'string', 'اسم الموقع بالعربية', 'Nom du site en arabe', 'Site name in Arabic', TRUE),
 ('site_name_fr', 'Syndicat National de l’Enseignement Supérieur', 'string', 'اسم الموقع بالفرنسية', 'Nom du site en français', 'Site name in French', TRUE),
-('site_name_en', 'Moroccan University Teachers Union', 'string', 'اسم الموقع بالإنجليزية', 'Nom du site en anglais', 'Site name in English', TRUE),
+('site_name_en', 'National Union of Higher Education', 'string', 'اسم الموقع بالإنجليزية', 'Nom du site en anglais', 'Site name in English', TRUE),
 ('contact_email', 'contact@university-union.ma', 'string', 'البريد الإلكتروني للاتصال', 'Email de contact', 'Contact email', TRUE),
 ('contact_phone', '+212 5 37 XX XX XX', 'string', 'رقم الهاتف للاتصال', 'Numéro de téléphone', 'Contact phone', TRUE),
 ('address_ar', 'الرباط، المغرب', 'string', 'العنوان بالعربية', 'Adresse en arabe', 'Address in Arabic', TRUE),

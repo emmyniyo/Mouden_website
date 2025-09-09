@@ -311,14 +311,14 @@
     }
   },
   "footer": {
-    "copyright": "© 2025 Moroccan University Teachers Union. All rights reserved.",
+    "copyright": "© 2025 National Union of Higher Education. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "contact": "Contact Us"
   },
   "home": {
     "hero": {
-      "title": "Moroccan University Teachers Union",
+      "title": "National Union of Higher Education",
       "subtitle": "For excellence in higher education and guaranteed rights for university professors in Morocco",
       "cta": "Join Our Union",
       "learnMore": "Learn More"
@@ -742,7 +742,7 @@
   "about": {
     "hero": {
       "title": "About Our Union",
-      "subtitle": "Moroccan University Teachers Union - A united voice for excellence in higher education"
+      "subtitle": "National Union of Higher Education - A united voice for excellence in higher education"
     },
     "mission": {
       "sectionTitle": "Our Mission and Vision",
@@ -777,7 +777,7 @@
         "founding": {
           "year": "1995",
           "title": "Union Foundation",
-          "description": "Creation of the Moroccan University Teachers Union with the mission of defending professors' rights"
+          "description": "Creation of the National Union of Higher Education with the mission of defending professors' rights"
         },
         "recognition": {
           "year": "2000",
