@@ -333,14 +333,14 @@
     }
   },
   "footer": {
-    "copyright": "© 2025 Syndicat des Professeurs Universitaires Marocains. Tous droits réservés.",
+    "copyright": "© 2025 Syndicat National de l’Enseignement Supérieur. Tous droits réservés.",
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",
     "contact": "Nous contacter"
   },
   "home": {
     "hero": {
-      "title": "Syndicat des Professeurs Universitaires Marocains",
+      "title": "Bienvenue au Syndicat National de l’Enseignement Supérieur",
       "subtitle": "Pour un enseignement supérieur d'excellence et des droits garantis aux professeurs universitaires au Maroc",
       "cta": "Rejoindre Notre Syndicat",
       "learnMore": "En Savoir Plus"
@@ -734,7 +734,7 @@
   "about": {
     "hero": {
       "title": "À Propos de Notre Syndicat",
-      "subtitle": "Syndicat des Professeurs Universitaires Marocains - Une voix unie pour l'excellence de l'enseignement supérieur"
+      "subtitle": "Syndicat National de l’Enseignement Supérieur - Une voix unie pour l'excellence de l'enseignement supérieur"
     },
     "mission": {
       "sectionTitle": "Notre Mission et Vision",
@@ -769,7 +769,7 @@
         "founding": {
           "year": "1995",
           "title": "Fondation du Syndicat",
-          "description": "Création du Syndicat des Professeurs Universitaires Marocains avec pour mission de défendre les droits des professeurs"
+          "description": "Création du Syndicat National de l’Enseignement Supérieur avec pour mission de défendre les droits des professeurs"
         },
         "recognition": {
           "year": "2000",

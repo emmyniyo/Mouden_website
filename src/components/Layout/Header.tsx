@@ -33,8 +33,14 @@ export const Header = () => {
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
             <span className="font-bold text-lg text-gray-900">
-              {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat des Professeurs Universitaires'}
+              SNESUP – {t('navigation.home') === 'Home'
+                ? 'Moroccan University Teachers Union'
+                : 'Syndicat National de l’Enseignement Supérieur'}
             </span>
+
+            {/* <span className="font-bold text-lg text-gray-900">
+              {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat National de l’Enseignement Supérieur'}
+            </span> */}
           </Link>
 
           {/* Desktop Navigation */}
