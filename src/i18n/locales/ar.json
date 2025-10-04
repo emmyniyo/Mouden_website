@@ -1,0 +1,781 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "view": "عرض",
+    "search": "بحث",
+    "filter": "تصفية",
+    "all": "الكل",
+    "none": "لا شيء",
+    "yes": "نعم",
+    "no": "لا",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين",
+    "confirm": "تأكيد",
+    "actions": "الإجراءات",
+    "status": "الحالة",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "address": "العنوان",
+    "description": "الوصف",
+    "notes": "ملاحظات",
+    "required": "مطلوب",
+    "optional": "اختياري"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "about": "حولنا",
+    "news": "الأخبار",
+    "documents": "الوثائق",
+    "contact": "اتصل بنا",
+    "members": "الأعضاء",
+    "profile": "الملف الشخصي",
+    "admin": "الإدارة",
+    "login": "تسجيل الدخول",
+    "register": "التسجيل",
+    "logout": "تسجيل الخروج"
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول",
+      "subtitle": "الوصول إلى حسابك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "rememberMe": "تذكرني",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "سجل الآن",
+      "signIn": "تسجيل الدخول",
+      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "loginError": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "demoAccounts": "حسابات تجريبية",
+      "admin": "مدير",
+      "editor": "محرر",
+      "member": "عضو"
+    },
+    "register": {
+      "title": "التسجيل",
+      "subtitle": "انضم إلى مجتمع نقابة الأساتذة",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "phone": "رقم الهاتف",
+      "memberId": "رقم العضوية (اختياري)",
+      "requestedRole": "الدور المطلوب",
+      "requestNotes": "ملاحظات الطلب (اختياري)",
+      "roleMember": "عضو",
+      "roleEditor": "محرر",
+      "roleMemberDesc": "الوصول إلى الوثائق والأخبار",
+      "roleEditorDesc": "يمكن إنشاء وتعديل المحتوى",
+      "roleSelectPlaceholder": "اختر دوراً",
+      "notesPlaceholder": "اشرح لماذا تطلب هذا الدور...",
+      "notesHelp": "قدم معلومات إضافية لمساعدة الإدارة في تقييم طلبك.",
+      "approvalNote": "ملاحظة: سيتم تقديم طلب التسجيل للموافقة من الإدارة. ستتلقى بريد إلكتروني للتأكيد عند الموافقة.",
+      "register": "سجل الآن",
+      "haveAccount": "لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول",
+      "registrationSuccess": "تم تقديم طلب التسجيل بنجاح!",
+      "registrationPending": "جاري المراجعة من قبل الإدارة. ستتلقى بريد إلكتروني للتأكيد عند الموافقة.",
+      "registrationError": "فشل التسجيل. يرجى المحاولة مرة أخرى.",
+      "validation": {
+        "firstNameRequired": "الاسم الأول مطلوب",
+        "lastNameRequired": "اسم العائلة مطلوب",
+        "emailRequired": "البريد الإلكتروني مطلوب",
+        "emailInvalid": "بريد إلكتروني غير صحيح",
+        "passwordRequired": "كلمة المرور مطلوبة",
+        "passwordMinLength": "كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل",
+        "confirmPasswordRequired": "تأكيد كلمة المرور مطلوب",
+        "passwordsMustMatch": "كلمات المرور يجب أن تتطابق",
+        "roleRequired": "الدور مطلوب",
+        "roleInvalid": "يرجى اختيار دور صحيح"
+      }
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور",
+      "subtitle": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+      "email": "البريد الإلكتروني",
+      "resetPassword": "إعادة تعيين كلمة المرور",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "resetSuccess": "تم إرسال بريد إعادة التعيين بنجاح",
+      "resetError": "فشل في إرسال بريد إعادة التعيين. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "admin": {
+    "sidebar": {
+      "title": "لوحة الإدارة",
+      "subtitle": "إدارة النقابة",
+      "dashboard": "لوحة القيادة",
+      "analytics": "التحليلات",
+      "approvals": "الموافقات",
+      "userManagement": "إدارة المستخدمين",
+      "documents": "الوثائق",
+      "news": "الأخبار",
+      "notifications": "الإشعارات",
+      "security": "الأمان",
+      "settings": "الإعدادات",
+      "help": "المساعدة والدعم",
+      "adminUser": "مستخدم الإدارة",
+      "adminRole": "مدير",
+      "editorRole": "محرر",
+      "profile": "الملف الشخصي",
+      "logout": "تسجيل الخروج"
+    },
+    "userManagement": {
+      "title": "إدارة المستخدمين",
+      "subtitle": "إدارة أعضاء النقابة والمستخدمين",
+      "export": "تصدير",
+      "addUser": "إضافة مستخدم",
+      "searchUsers": "البحث عن المستخدمين...",
+      "allRoles": "جميع الأدوار",
+      "allStatuses": "جميع الحالات",
+      "users": "المستخدمين",
+      "user": "مستخدم",
+      "university": "الجامعة",
+      "role": "الدور",
+      "lastLogin": "آخر تسجيل دخول",
+      "actions": "الإجراءات",
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "totalUsers": "إجمالي المستخدمين",
+      "activeMembers": "الأعضاء النشطين",
+      "administrators": "المديرين",
+      "inactiveUsers": "المستخدمين غير النشطين",
+      "neverLoggedIn": "لم يسجل دخول أبداً",
+      "form": {
+        "title": "إضافة مستخدم جديد",
+        "personalInfo": "المعلومات الشخصية",
+        "professionalInfo": "المعلومات المهنية",
+        "accountSettings": "إعدادات الحساب",
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "email": "البريد الإلكتروني",
+        "phone": "رقم الهاتف",
+        "university": "الجامعة",
+        "department": "القسم",
+        "position": "المنصب",
+        "role": "الدور",
+        "memberId": "رقم العضوية",
+        "activeAccount": "حساب نشط",
+        "placeholders": {
+          "firstName": "أدخل الاسم الأول",
+          "lastName": "أدخل اسم العائلة",
+          "email": "أدخل البريد الإلكتروني",
+          "phone": "أدخل رقم الهاتف",
+          "selectUniversity": "اختر الجامعة",
+          "selectDepartment": "اختر القسم",
+          "selectPosition": "اختر المنصب",
+          "memberId": "سيتم إنشاؤه تلقائياً إذا كان فارغاً"
+        },
+        "roles": {
+          "admin": "مدير",
+          "editor": "محرر",
+          "member": "عضو",
+          "visitor": "زائر"
+        },
+        "validation": {
+          "firstNameRequired": "الاسم الأول مطلوب",
+          "lastNameRequired": "اسم العائلة مطلوب",
+          "emailRequired": "البريد الإلكتروني مطلوب",
+          "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+          "universityRequired": "الجامعة مطلوبة",
+          "departmentRequired": "القسم مطلوب",
+          "roleRequired": "الدور مطلوب"
+        },
+        "create": "إنشاء المستخدم",
+        "creating": "جاري الإنشاء...",
+        "update": "تحديث المستخدم",
+        "updating": "جاري التحديث...",
+        "cancel": "إلغاء"
+      },
+      "edit": {
+        "title": "تعديل المستخدم",
+        "confirmDelete": "هل أنت متأكد من حذف هذا المستخدم؟",
+        "deleteWarning": "لا يمكن التراجع عن هذا الإجراء. سيتم حذف المستخدم نهائياً من النظام.",
+        "delete": "حذف المستخدم",
+        "deleting": "جاري الحذف...",
+        "cancel": "إلغاء"
+      }
+    },
+    "dashboard": {
+      "title": "لوحة القيادة الإدارية",
+      "welcome": "مرحباً بعودتك",
+      "totalUsers": "إجمالي المستخدمين",
+      "pendingRequests": "الطلبات المعلقة",
+      "totalDocuments": "إجمالي الوثائق",
+      "totalNews": "إجمالي الأخبار",
+      "activeSessions": "الجلسات النشطة",
+      "approvals": "الموافقات",
+      "manageRegistrations": "إدارة طلبات التسجيل",
+      "pendingCount": "معلقة",
+      "userManagement": "إدارة المستخدمين",
+      "manageMembers": "إدارة الأعضاء والأدوار",
+      "documentManagement": "إدارة الوثائق",
+      "uploadOrganize": "رفع وتنظيم الوثائق",
+      "newsManagement": "إدارة الأخبار",
+      "createPublish": "إنشاء ونشر المقالات",
+      "recentActivity": "النشاط الأخير",
+      "activityOverview": "نظرة عامة على النشاط",
+      "userGrowthTrend": "اتجاه نمو المستخدمين",
+      "userRoles": "أدوار المستخدمين",
+      "lastMonths": "آخر 6 أشهر",
+      "last3Months": "آخر 3 أشهر",
+      "lastMonth": "الشهر الماضي",
+      "vsLastMonth": "مقارنة بالشهر الماضي"
+    },
+    "registrationApproval": {
+      "title": "إدارة طلبات التسجيل",
+      "subtitle": "الموافقة أو رفض طلبات تسجيل الأعضاء الجدد",
+      "pending": "معلقة",
+      "approved": "موافق عليها",
+      "rejected": "مرفوضة",
+      "total": "الإجمالي",
+      "searchPlaceholder": "البحث عن الطلبات...",
+      "allRoles": "جميع الأدوار",
+      "allStatuses": "جميع الحالات",
+      "requests": "الطلبات",
+      "applicant": "المتقدم",
+      "university": "الجامعة",
+      "requestedRole": "الدور المطلوب",
+      "requestDate": "تاريخ الطلب",
+      "actions": "الإجراءات",
+      "viewDetails": "عرض التفاصيل",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "loadingRequests": "جاري تحميل الطلبات...",
+      "requestDetails": "تفاصيل الطلب",
+      "personalInfo": "المعلومات الشخصية",
+      "fullName": "الاسم الكامل",
+      "professionalInfo": "المعلومات المهنية",
+      "position": "المنصب",
+      "specialization": "التخصص",
+      "requestInfo": "تفاصيل الطلب",
+      "applicantNotes": "ملاحظات المتقدم",
+      "adminActions": "إجراءات الإدارة",
+      "adminNotes": "ملاحظات إدارية",
+      "adminNotesPlaceholder": "أضف ملاحظات لهذا الطلب...",
+      "rejectionReason": "سبب الرفض (إن أمكن)",
+      "rejectionReasonPlaceholder": "اشرح لماذا يتم رفض هذا الطلب...",
+      "approveRequest": "موافقة",
+      "rejectRequest": "رفض",
+      "accessDenied": "الوصول مرفوض",
+      "noPermission": "ليس لديك صلاحية للوصول إلى هذه الصفحة."
+    }
+  },
+  "roles": {
+    "admin": "مدير",
+    "editor": "محرر",
+    "member": "عضو",
+    "visitor": "زائر"
+  },
+  "status": {
+    "pending": "معلق",
+    "approved": "موافق عليه",
+    "rejected": "مرفوض",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "messages": {
+    "success": {
+      "registrationSubmitted": "تم تقديم طلب التسجيل بنجاح!",
+      "requestApproved": "تمت الموافقة على الطلب بنجاح",
+      "requestRejected": "تم رفض الطلب بنجاح",
+      "profileUpdated": "تم تحديث الملف الشخصي بنجاح",
+      "settingsSaved": "تم حفظ الإعدادات بنجاح"
+    },
+    "error": {
+      "generic": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+      "unauthorized": "ليس لديك صلاحية لتنفيذ هذا الإجراء.",
+      "notFound": "المورد المطلوب غير موجود.",
+      "validationError": "يرجى التحقق من بياناتك والمحاولة مرة أخرى."
+    },
+    "info": {
+      "noData": "لا توجد بيانات متاحة",
+      "loading": "جاري التحميل...",
+      "processing": "جاري المعالجة...",
+      "saved": "تم الحفظ"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 نقابة الأساتذة الجامعيين المغاربة. جميع الحقوق محفوظة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "contact": "اتصل بنا"
+  },
+  "home": {
+    "hero": {
+      "title": "نقابة الأساتذة الجامعيين المغاربة",
+      "subtitle": "من أجل تعليم عالي متميز وحقوق مضمونة للأساتذة الجامعيين في المغرب",
+      "cta": "انضم إلى نقابتنا",
+      "learnMore": "اعرف المزيد"
+    },
+    "features": {
+      "title": "لماذا تختار نقابتنا؟",
+      "subtitle": "نحن نقدم دعماً شاملاً وموارد لمساعدة المربين على الازدهار في مسيرتهم المهنية.",
+      "feature1": {
+        "title": "الدعم المهني",
+        "description": "الوصول إلى المشورة القانونية والتطوير المهني والتوجيه الوظيفي."
+      },
+      "feature2": {
+        "title": "الشبكة المجتمعية",
+        "description": "تواصل مع المربين الآخرين وشارك التجارب والمعرفة."
+      },
+      "feature3": {
+        "title": "الدفاع عن الحقوق",
+        "description": "نحن نكافح من أجل حقوقك وظروف عمل أفضل."
+      },
+      "feature4": {
+        "title": "الموارد",
+        "description": "الوصول إلى المواد التعليمية وأدوات البحث وبرامج التدريب."
+      }
+    },
+    "cta": {
+      "title": "مستعد لإحداث الفرق؟",
+      "subtitle": "انضم إلى مجتمعنا من المربين المتفانين وساعد في تشكيل مستقبل التعليم.",
+      "button": "انضم إلى نقابتنا"
+    },
+    "news": {
+      "title": "آخر الأخبار",
+      "viewAll": "عرض جميع الأخبار",
+      "readMore": "اقرأ المزيد",
+      "articles": {
+        "professionalDevelopment": {
+          "title": "إطلاق برنامج جديد للتطوير المهني للأساتذة الجامعيين",
+          "excerpt": "فرص تدريب شاملة متاحة الآن لجميع أعضاء النقابة في مختلف التخصصات الأكاديمية"
+        },
+        "salaryNegotiations": {
+          "title": "نتائج إيجابية للمفاوضات حول الرواتب والمزايا الجامعية",
+          "excerpt": "تحقق النقابة زيادة 12% في الرواتب وتحسين المزايا لجميع الأساتذة الجامعيين"
+        },
+        "conferenceRegistration": {
+          "title": "فتح التسجيل لمؤتمر التعليم الجامعي السنوي",
+          "excerpt": "انضم إلينا لثلاثة أيام من التعلم وفرص التواصل الأكاديمي والمهني"
+        }
+      }
+    },
+    "events": {
+      "title": "الأحداث القادمة",
+      "noEvents": "لا توجد أحداث قادمة في الوقت الحالي",
+      "at": "في",
+      "list": {
+        "monthlyAssembly": {
+          "title": "الجمعية الشهرية للنقابة",
+          "location": "مقر النقابة - الرباط"
+        },
+        "workshop": {
+          "title": "ورشة التطوير المهني",
+          "location": "مركز التدريب - جامعة محمد الخامس"
+        },
+        "recognition": {
+          "title": "حفل تكريم الأعضاء المتميزين",
+          "location": "المركز الثقافي - الدار البيضاء"
+        }
+      }
+    },
+    "documents": {
+      "title": "الوثائق الأخيرة",
+      "noDocuments": "لا توجد وثائق حديثة متاحة",
+      "list": {
+        "collectiveAgreement": {
+          "title": "اتفاقية التفاوض الجماعي 2025",
+          "type": "وثيقة PDF",
+          "size": "2.4 ميجابايت"
+        },
+        "memberBenefits": {
+          "title": "دليل مزايا الأعضاء",
+          "type": "وثيقة PDF",
+          "size": "1.8 ميجابايت"
+        },
+        "professionalStandards": {
+          "title": "دليل المعايير المهنية الجامعية",
+          "type": "وثيقة PDF",
+          "size": "3.2 ميجابايت"
+        }
+      }
+    },
+    "stats": {
+      "activeMembers": "الأعضاء النشطين",
+      "universities": "الجامعات والمؤسسات",
+      "yearsOfService": "سنوات الخدمة",
+      "eventsOrganized": "الأحداث المنظمة",
+      "memberSatisfaction": "رضا الأعضاء"
+    }
+  },
+  "news": {
+    "title": "الأخبار والأحداث",
+    "subtitle": "ابق على اطلاع بآخر أخبار النقابة والإعلانات والأحداث القادمة",
+    "search": {
+      "placeholder": "البحث عن الأخبار والأحداث...",
+      "noResults": "لم يتم العثور على مقالات تطابق بحثك"
+    },
+    "filters": {
+      "all": "الكل",
+      "news": "الأخبار",
+      "announcements": "الإعلانات",
+      "events": "الأحداث",
+      "featured": "مميز"
+    },
+    "article": {
+      "readMore": "اقرأ المزيد",
+      "publishedBy": "نشر بواسطة",
+      "on": "في",
+      "category": "الفئة",
+      "share": "مشاركة",
+      "download": "تحميل"
+    },
+    "events": {
+      "upcoming": "الأحداث القادمة",
+      "past": "الأحداث السابقة",
+      "register": "تسجيل",
+      "location": "المكان",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "types": {
+        "meeting": "الاجتماعات",
+        "workshop": "الورش",
+        "conference": "المؤتمرات",
+        "social": "اجتماعي"
+      }
+    }
+  },
+  "documents": {
+    "title": "مركز الوثائق",
+    "subtitle": "الوصول إلى الوثائق المهمة للنقابة والاتفاقيات والموارد",
+    "search": {
+      "placeholder": "البحث عن الوثائق...",
+      "noResults": "لم يتم العثور على وثائق تطابق بحثك"
+    },
+    "filters": {
+      "all": "جميع الوثائق",
+      "agreements": "الاتفاقيات",
+      "policies": "السياسات",
+      "forms": "النماذج",
+      "reports": "التقارير",
+      "public": "عام",
+      "membersOnly": "للأعضاء فقط"
+    },
+    "document": {
+      "download": "تحميل",
+      "preview": "معاينة",
+      "size": "الحجم",
+      "uploaded": "تم الرفع",
+      "downloads": "التحميلات",
+      "category": "الفئة",
+      "type": "النوع"
+    },
+    "loginRequired": {
+      "title": "الوصول إلى المزيد من الوثائق",
+      "message": "سجل دخولك كعضو في النقابة للوصول إلى الوثائق الحصرية والموارد.",
+      "button": "تسجيل الدخول"
+    },
+    "upload": {
+      "title": "رفع وثيقة",
+      "selectFile": "اختر ملف",
+      "dragDrop": "اسحب وأفلت الملفات هنا، أو انقر للاختيار",
+      "supportedFormats": "الصيغ المدعومة: PDF, DOC, DOCX, XLS, XLSX, TXT",
+      "maxSize": "الحد الأقصى لحجم الملف: 10 ميجابايت",
+      "upload": "رفع",
+      "uploading": "جاري الرفع...",
+      "success": "تم رفع الوثيقة بنجاح",
+      "error": "خطأ في رفع الوثيقة"
+    },
+    "sort": {
+      "title": "ترتيب حسب",
+      "newest": "الأحدث",
+      "oldest": "الأقدم",
+      "name": "الاسم أ-ي",
+      "size": "الحجم",
+      "downloads": "الأكثر تحميلاً"
+    }
+  },
+  "members": {
+    "title": "دليل الأعضاء",
+    "subtitle": "تواصل مع زملائك الأساتذة الجامعيين في جميع أنحاء المغرب",
+    "loginRequired": {
+      "title": "تسجيل الدخول مطلوب",
+      "message": "يرجى تسجيل الدخول للوصول إلى دليل الأعضاء"
+    },
+    "search": {
+      "placeholder": "البحث عن الأعضاء...",
+      "noResults": "لم يتم العثور على أعضاء",
+      "noResultsMessage": "حاول تعديل معايير البحث"
+    },
+    "filters": {
+      "allUniversities": "جميع الجامعات",
+      "allFaculties": "جميع الكليات",
+      "membersCount": "عضو"
+    },
+    "member": {
+      "specialization": "التخصص",
+      "memberSince": "عضو منذ",
+      "sendMessage": "إرسال رسالة"
+    },
+    "universities": {
+      "mohammedV": "جامعة محمد الخامس - الرباط",
+      "hassanII": "جامعة الحسن الثاني - الدار البيضاء",
+      "sidiMohamed": "جامعة سيدي محمد بن عبد الله - فاس",
+      "cadiAyyad": "جامعة القاضي عياض - مراكش",
+      "ibnTofail": "جامعة ابن طفيل - القنيطرة"
+    },
+    "departments": {
+      "sciences": "كلية العلوم",
+      "letters": "كلية الآداب والعلوم الإنسانية",
+      "medicine": "كلية الطب والصيدلة",
+      "law": "كلية العلوم القانونية والاقتصادية",
+      "engineering": "كلية الهندسة",
+      "education": "كلية التربية"
+    },
+    "positions": {
+      "professor": "أستاذ التعليم العالي",
+      "habilitated": "أستاذ مؤهل",
+      "assistant": "أستاذ مساعد"
+    }
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "subtitle": "تواصل مع فريقنا لأي استفسار أو مساعدة",
+    "form": {
+      "title": "أرسل لنا رسالة",
+      "successMessage": "تم إرسال الرسالة بنجاح!",
+      "fields": {
+        "name": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "subject": "الموضوع",
+        "message": "الرسالة"
+      },
+      "placeholders": {
+        "name": "اسمك الكامل",
+        "email": "your.email@example.com",
+        "subject": "بماذا يتعلق الأمر؟",
+        "message": "أخبرنا عن طلبك..."
+      },
+      "submit": "إرسال الرسالة",
+      "sending": "جاري الإرسال..."
+    },
+    "validation": {
+      "nameRequired": "الاسم مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "بريد إلكتروني غير صحيح",
+      "subjectRequired": "الموضوع مطلوب",
+      "messageRequired": "الرسالة مطلوبة",
+      "messageMinLength": "الرسالة يجب أن تحتوي على 10 أحرف على الأقل"
+    },
+    "info": {
+      "title": "معلومات الاتصال",
+      "email": {
+        "title": "أرسل لنا بريد إلكتروني",
+        "description": "أرسل لنا بريد إلكتروني في أي وقت"
+      },
+      "phone": {
+        "title": "اتصل بنا",
+        "description": "الاثنين إلى الجمعة، 9 ص - 5 م"
+      },
+      "address": {
+        "title": "زرنا",
+        "description": "مكتبنا مفتوح للأعضاء"
+      },
+      "hours": {
+        "title": "ساعات العمل",
+        "description": "مغلق أيام الأحد والعطل الرسمية"
+      }
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "questions": {
+        "membership": {
+          "question": "كيف أصبح عضواً في النقابة؟",
+          "answer": "يمكنك التقدم للعضوية بملء نموذج التسجيل ودفع الرسوم السنوية. العضوية مفتوحة لجميع المعلمين المعتمدين."
+        },
+        "benefits": {
+          "question": "ما هي المزايا التي يحصل عليها الأعضاء؟",
+          "answer": "يحصل الأعضاء على الحماية القانونية وفرص التطوير المهني والوصول إلى الموارد الحصرية والتمثيل في مفاوضات الرواتب."
+        },
+        "documents": {
+          "question": "كيف يمكنني الوصول إلى الوثائق المخصصة للأعضاء؟",
+          "answer": "بعد تسجيل الدخول إلى حسابك كعضو، يمكنك الوصول إلى جميع الوثائق الخاصة عبر مركز الوثائق."
+        },
+        "grievance": {
+          "question": "كيف أقدم شكوى؟",
+          "answer": "حمل نموذج الشكوى من مركز الوثائق أو اتصل مباشرة بمكتبنا للحصول على المساعدة في العملية."
+        }
+      }
+    },
+    "emergency": {
+      "title": "الدعم الطارئ",
+      "description": "للأسئلة النقابية العاجلة أو الطوارئ القانونية، اتصل بخط المساعدة 24/7"
+    }
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "accessDenied": {
+      "title": "الوصول مرفوض",
+      "message": "يرجى تسجيل الدخول لرؤية ملفك الشخصي"
+    },
+    "header": {
+      "edit": "تعديل",
+      "cancel": "إلغاء",
+      "roles": {
+        "admin": "مدير",
+        "editor": "محرر",
+        "member": "عضو",
+        "visitor": "زائر"
+      }
+    },
+    "personalInfo": {
+      "title": "المعلومات الشخصية",
+      "fields": {
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "phone": "رقم الهاتف",
+        "university": "الجامعة",
+        "department": "الكلية/القسم",
+        "position": "المنصب",
+        "specialization": "التخصص"
+      },
+      "labels": {
+        "fullName": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "university": "الجامعة",
+        "position": "المنصب",
+        "memberSince": "عضو منذ"
+      },
+      "placeholders": {
+        "notSpecified": "غير محدد"
+      },
+      "validation": {
+        "firstNameRequired": "الاسم الأول مطلوب",
+        "lastNameRequired": "اسم العائلة مطلوب"
+      },
+      "positions": {
+        "professor": "أستاذ التعليم العالي",
+        "habilitated": "أستاذ مؤهل",
+        "assistant": "أستاذ مساعد",
+        "visitor": "أستاذ زائر"
+      },
+      "actions": {
+        "save": "حفظ التغييرات",
+        "cancel": "إلغاء"
+      }
+    },
+    "membership": {
+      "title": "حالة العضوية",
+      "type": "نوع العضوية",
+      "status": "الحالة",
+      "renewalDate": "تاريخ التجديد",
+      "types": {
+        "full": "عضوية كاملة",
+        "associate": "عضوية منتسبة",
+        "student": "عضوية طلابية"
+      },
+      "statuses": {
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "pending": "معلق",
+        "expired": "منتهي الصلاحية"
+      }
+    },
+    "activity": {
+      "title": "النشاط الأخير",
+      "actions": {
+        "downloaded": "تم تحميل:",
+        "viewed": "تم عرض:",
+        "registered": "تم التسجيل في:"
+      },
+      "items": {
+        "benefitsGuide": "دليل المزايا 2025",
+        "unionNews": "أخبار النقابة",
+        "workshop": "ورشة التطوير المهني"
+      }
+    },
+    "quickActions": {
+      "title": "الإجراءات السريعة",
+      "changePassword": "تغيير كلمة المرور",
+      "downloadCard": "تحميل بطاقة العضوية",
+      "viewHistory": "عرض تاريخ النشاط"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "حول نقابتنا",
+      "subtitle": "نقابة الأساتذة الجامعيين المغاربة - صوت موحد من أجل التميز في التعليم العالي"
+    },
+    "mission": {
+      "sectionTitle": "مهمتنا ورؤيتنا",
+      "title": "المهمة",
+      "description": "نعمل على الدفاع عن حقوق ومصالح الأساتذة الجامعيين في المغرب، وتحسين جودة التعليم العالي، وبناء مجتمع أكاديمي متضامن يساهم في التنمية الشاملة للبلاد.",
+      "vision": "الرؤية",
+      "visionDescription": "أن نكون النقابة الرائدة في المغرب والمنطقة لتمثيل الأساتذة الجامعيين وتطوير التعليم العالي، مع الحفاظ على أعلى القيم الأكاديمية والمهنية."
+    },
+    "values": {
+      "title": "قيمنا الأساسية",
+      "subtitle": "القيم التي توجه عملنا وتحدد هويتنا كنقابة أكاديمية مهنية",
+      "rightsDefense": {
+        "title": "الدفاع عن الحقوق",
+        "description": "ندافع بقوة عن حقوق الأساتذة الجامعيين ونضمن ظروف عمل عادلة"
+      },
+      "academicExcellence": {
+        "title": "التميز الأكاديمي",
+        "description": "نروج لمعايير تعليم وبحث عالية الجودة في الجامعات المغربية"
+      },
+      "solidarity": {
+        "title": "التضامن",
+        "description": "نبني مجتمعاً موحداً يدعم ويساعد كل عضو على النمو مهنياً"
+      },
+      "innovation": {
+        "title": "الابتكار",
+        "description": "نشجع الابتكار التربوي واعتماد طرق التدريس الحديثة"
+      }
+    },
+    "history": {
+      "title": "تاريخنا ومسارنا",
+      "timeline": {
+        "founding": {
+          "year": "1995",
+          "title": "تأسيس النقابة",
+          "description": "إنشاء نقابة الأساتذة الجامعيين المغاربة بمهمة الدفاع عن حقوق الأساتذة"
+        },
+        "recognition": {
+          "year": "2000",
+          "title": "الاعتراف الرسمي",
+          "description": "الاعتراف الرسمي من وزارة التعليم العالي وإنشاء الشراكات"
+        },
+        "expansion": {
+          "year": "2010",
+          "title": "التوسع الوطني",
+          "description": "التوسع إلى جميع الجامعات المغربية وإنشاء الفروع الإقليمية"
+        },
+        "digital": {
+          "year": "2020",
+          "title": "التحول الرقمي",
+          "description": "إطلاق الخدمات الرقمية والمنصات الإلكترونية لدعم الأعضاء"
+        }
+      }
+    },
+    "leadership": {
+      "title": "الفريق القيادي",
+      "subtitle": "فريق قيادي متميز من الأساتذة الجامعيين ذوي الخبرة والكفاءة"
+    },
+    "cta": {
+      "title": "انضم إلى مجتمعنا الأكاديمي",
+      "subtitle": "كن جزءاً من النقابة الرائدة للأساتذة الجامعيين في المغرب",
+      "joinNow": "انضم الآن",
+      "contactUs": "اتصل بنا"
+    }
+  }
+}
+

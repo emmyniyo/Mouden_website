@@ -1,5 +1,6 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout/Layout';
@@ -22,6 +23,15 @@ import { RegistrationApproval } from './pages/admin/RegistrationApproval';
 // Main application component with routing and authentication context
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    // Set document direction based on language
+    const isRTL = i18n.language === 'ar';
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <AuthProvider>
       <Router>

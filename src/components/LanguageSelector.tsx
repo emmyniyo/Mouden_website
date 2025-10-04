@@ -9,8 +9,9 @@ interface Language {
 }
 
 const languages: Language[] = [
+  { code: 'ar', name: 'العربية' },
   { code: 'fr', name: 'Français' },
-  { code: 'en', name: 'English' }
+  { code: 'en', name: 'English' },
 ];
 
 export const LanguageSelector = () => {
