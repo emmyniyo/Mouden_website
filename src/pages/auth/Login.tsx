@@ -62,9 +62,12 @@ export const Login = () => {
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
           <div className="text-center">
-            <div className="mx-auto h-12 w-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
-              <GraduationCap className="h-7 w-7 text-white" />
+            <div className="mx-auto h-32 w-32 rounded-xl flex items-center justify-center">
+              <img src="/assets/logo.png" alt="Logo" width={64} height={64} />
             </div>
+            {/* <div className="mx-auto h-12 w-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
+              <GraduationCap className="h-7 w-7 text-white" />
+            </div> */}
             <h2 className="mt-6 text-3xl font-bold text-gray-900">{t('auth.login.title')}</h2>
             <p className="mt-2 text-sm text-gray-600">
               {t('auth.login.subtitle')}
