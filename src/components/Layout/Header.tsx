@@ -29,9 +29,12 @@ export const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-lg">
-              <GraduationCap className="h-6 w-6 text-white" />
+            <div>
+              <img src="/assets/logo.png" alt="Logo" width={46} height={32} />
             </div>
+            {/* <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-lg">
+              <GraduationCap className="h-6 w-6 text-white" />
+            </div> */}
             <span className="font-bold text-lg text-gray-900">
               {t('navigation.home') === 'Home' ? 'Moroccan University Teachers Union' : 'Syndicat des Professeurs Universitaires'}
             </span>
@@ -43,11 +46,10 @@ export const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors px-3 py-2 rounded-md ${
-                  isActive(item.href)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}
+                className={`text-sm font-medium transition-colors px-3 py-2 rounded-md ${isActive(item.href)
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
               >
                 {item.name}
               </Link>
@@ -75,16 +77,15 @@ export const Header = () => {
                     <div className="px-4 py-3 border-b border-gray-200">
                       <p className="text-sm font-medium text-gray-900">{user.firstName} {user.lastName}</p>
                       <p className="text-xs text-gray-500">{user.email}</p>
-                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-2 ${
-                        user.role === 'admin' ? 'bg-red-100 text-red-800' :
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-2 ${user.role === 'admin' ? 'bg-red-100 text-red-800' :
                         user.role === 'editor' ? 'bg-yellow-100 text-yellow-800' :
-                        user.role === 'member' ? 'bg-green-100 text-green-800' :
-                        'bg-gray-100 text-gray-800'
-                      }`}>
+                          user.role === 'member' ? 'bg-green-100 text-green-800' :
+                            'bg-gray-100 text-gray-800'
+                        }`}>
                         {t(`roles.${user.role}`)}
                       </span>
                     </div>
-                    
+
                     {(user.role === 'admin' || user.role === 'editor') && (
                       <Link
                         to="/admin"
@@ -95,16 +96,7 @@ export const Header = () => {
                         {t('admin.dashboard.title')}
                       </Link>
                     )}
-                    
-                    {/* <Link
-                      to="/profile"
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      <User size={16} />
-                      {t('navigation.profile')}
-                    </Link> */}
-                    
+
                     <button
                       onClick={() => {
                         logout();
@@ -146,11 +138,10 @@ export const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                  isActive(item.href)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
-                }`}
+                className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${isActive(item.href)
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
